@@ -61,19 +61,19 @@ export function Header({ homepage = false }: HeaderProps) {
             <Link
               href="#beranda"
               className="flex min-w-0 items-center"
-              aria-label="Dokter Sejuk AC — beranda"
+              aria-label="Sabit Jaya Service — beranda"
             >
               <div className="flex min-w-0 items-center gap-2.5">
                 <img
                   src="/logo-dokter-sejuk-ac-transparent.png"
-                  alt="Dokter Sejuk AC"
+                  alt="Sabit Jaya Service"
                   className="h-10 w-auto object-contain sm:h-12"
                 />
 
                 <span className="whitespace-nowrap font-display text-lg font-bold tracking-tight sm:text-xl">
-                  <span className="text-[#0F2342]">Dokter</span>{' '}
-                  <span className="text-[#1677E8]">Sejuk</span>{' '}
-                  <span className="text-[#7A8491]">AC</span>
+                  <span className="text-[#0F2342]">Sabit</span>{' '}
+                  <span className="text-[#1677E8]">Jaya</span>{' '}
+                  <span className="text-[#7A8491]">Service</span>
                 </span>
               </div>
             </Link>
@@ -119,8 +119,8 @@ export function Header({ homepage = false }: HeaderProps) {
             >
               <div className="flex items-center justify-between border-b border-border px-6 py-5">
                 <span className="font-display text-lg font-bold tracking-tight text-foreground">
-                  Dokter Sejuk{' '}
-                  <span className="text-[#1677E8]">AC</span>
+                  Sabit Jaya{' '}
+                  <span className="text-[#1677E8]">Service</span>
                 </span>
 
                 <button
@@ -256,4 +256,4 @@ export function Header({ homepage = false }: HeaderProps) {
       </AnimatePresence>
     </>
   );
-      }
+                }

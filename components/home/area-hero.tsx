@@ -159,7 +159,7 @@ export function AreaHero({ city, description }: AreaHeroProps) {
             >
               <motion.img
                 src="/home-2-transparent.png"
-                alt={`Teknisi Dokter Sejuk AC melayani service AC di ${city}`}
+                alt={`Teknisi Sabit Jaya Service melayani service AC di ${city}`}
                 className="w-[95%] max-w-[620px] object-contain drop-shadow-2xl sm:w-[85%] lg:w-[680px]"
                 animate={{
                   y: [0, -12, 0],

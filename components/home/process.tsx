@@ -24,7 +24,7 @@ const aboutCards = [
   {
     title: 'Siapa Kami',
     content:
-      'Dokter Sejuk AC adalah tim teknisi AC profesional yang berpengalaman dalam bidang perawatan, perbaikan, pemasangan, bongkar pasang, pengisian freon, serta troubleshooting berbagai merek AC untuk kebutuhan rumah, apartemen, kantor, hingga tempat usaha.',
+      'Sabit Jaya Service adalah tim teknisi AC profesional yang berpengalaman dalam bidang perawatan, perbaikan, pemasangan, bongkar pasang, pengisian freon, serta troubleshooting berbagai merek AC untuk kebutuhan rumah, apartemen, kantor, hingga tempat usaha.',
     icon: Users,
   },
   {
@@ -124,4 +124,4 @@ export function Process() {
       </div>
     </section>
   );
-    }
+        }

@@ -163,7 +163,7 @@ export function WhyChooseUs() {
           {/* Badge hijau muda */}
           <div className="inline-flex items-center gap-2 rounded-full bg-[#B8F5D0] px-4 py-2 text-sm font-semibold text-[#075B2A] shadow-sm">
             <span className="h-2 w-2 rounded-full bg-[#20C76A]" />
-            <span>Kenapa Harus Dokter Sejuk</span>
+            <span>Kenapa Harus Sabit Jaya Service</span>
           </div>
 
           <h2 className="mt-5 font-display text-[2rem] font-bold leading-tight tracking-tight text-white sm:text-[2.35rem] lg:text-[2.75rem]">
@@ -334,4 +334,4 @@ export function WhyChooseUs() {
       </div>
     </section>
   );
-        }
+}

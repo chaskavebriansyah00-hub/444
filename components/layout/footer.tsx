@@ -234,7 +234,7 @@ export function Footer() {
                   href={siteConfig.phoneHref}
                   className="mt-1 block text-[11px] leading-5 text-slate-300 transition-colors duration-200 hover:text-white sm:text-sm"
                 >
-                  0858 8401 1908
+                  0857 7333 4303
                 </a>
               </div>
             </div>

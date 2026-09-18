@@ -1,18 +1,18 @@
 export const siteConfig = {
-  name: 'Dokter Sejuk AC',
-  shortName: 'Dokter Sejuk',
+  name: 'Sabit Jaya Service',
+  shortName: 'Sabit Jaya Service',
   tagline: 'Jasa Service AC Profesional & Bergaransi',
   description:
-    'Teknisi bersertifikat, harga transparan, dan garansi resmi untuk cuci AC, isi freon, perbaikan, serta bongkar-pasang se-Indonesia.',
-  url: 'https://doktersejukac.id',
+    'Teknisi berpengalaman, harga transparan, dan garansi resmi untuk cuci AC, isi freon, perbaikan, serta bongkar-pasang se-Indonesia.',
+  url: 'https://sabitjayaservice.com',
   phone: '085884011908',
   phoneDisplay: '0858-8401-1908',
   phoneHref: 'tel:085884011908',
   whatsappHref: 'https://wa.me/6285884011908',
   whatsappText:
-    'Halo Dokter Sejuk AC, saya ingin konsultasi mengenai layanan service AC.',
-  email: 'halo@doktersejukac.id',
-  emailHref: 'mailto:halo@doktersejukac.id',
+    'Halo Sabit Jaya Service, saya ingin konsultasi mengenai layanan service AC.',
+  email: 'halo@sabitjayaservice.com',
+  emailHref: 'mailto:halo@sabitjayaservice.com',
 
   address: {
     line1: 'Jl. Sejuk Makmur No. 88',
@@ -28,9 +28,9 @@ export const siteConfig = {
   ],
 
   social: {
-    instagram: 'https://www.instagram.com/doktersejukac',
-    facebook: 'https://www.facebook.com/doktersejukac',
-    tiktok: 'https://www.tiktok.com/@doktersejukac',
+    instagram: 'https://www.instagram.com/sabitjayaservice',
+    facebook: 'https://www.facebook.com/sabitjayaservice',
+    tiktok: 'https://www.tiktok.com/@sabitjayaservice',
   },
 
   rating: 4.9,

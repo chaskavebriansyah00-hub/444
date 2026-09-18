@@ -93,9 +93,9 @@ export function Footer() {
         ========================================================= */}
         <div className="mx-auto max-w-2xl text-center">
           <p className="font-display text-[23px] font-bold tracking-tight text-white sm:text-2xl">
-            Dokter{' '}
-            <span className="text-[hsl(211_100%_60%)]">Sejuk</span>{' '}
-            <span className="text-slate-300">AC</span>
+            Sabit{' '}
+            <span className="text-[hsl(211_100%_60%)]">Jaya</span>{' '}
+            <span className="text-slate-300">Service</span>
           </p>
 
           <p className="mx-auto mt-3 max-w-xl text-[13px] leading-6 text-slate-400 sm:text-sm">
@@ -256,7 +256,7 @@ export function Footer() {
                   href={siteConfig.emailHref}
                   className="mt-1 block break-all text-[11px] leading-5 text-slate-300 transition-colors duration-200 hover:text-white sm:text-sm"
                 >
-                  halo@doktersejukac.id
+                  {siteConfig.email}
                 </a>
               </div>
             </div>
@@ -291,10 +291,10 @@ export function Footer() {
         ========================================================= */}
         <div className="mt-5 text-center">
           <p className="text-[11px] text-slate-500 sm:text-xs">
-            &copy; 2026 Dokter Sejuk AC. Semua Hak Dilindungi.
+            &copy; 2026 Sabit Jaya Service. Semua Hak Dilindungi.
           </p>
         </div>
       </div>
     </footer>
   );
-            }
+}

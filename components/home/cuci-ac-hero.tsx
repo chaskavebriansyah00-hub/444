@@ -130,7 +130,7 @@ export function CuciAcHero() {
                 className="mt-6 max-w-xl text-base leading-[1.7] text-white/90 drop-shadow-md sm:text-lg sm:leading-[1.75]"
               >
                 Jasa cuci AC profesional untuk rumah, apartemen, kantor,
-                ruko, dan tempat usaha. Dokter Sejuk AC melayani cuci AC
+                ruko, dan tempat usaha. Sabit Jaya Service melayani cuci AC
                 dengan teknisi berpengalaman, pengerjaan rapi, harga
                 transparan, dan layanan bergaransi sesuai ketentuan.
               </motion.p>
@@ -157,7 +157,7 @@ export function CuciAcHero() {
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <motion.img
                 src="/home-2-transparent.png"
-                alt="Teknisi Dokter Sejuk AC sedang melayani cuci AC"
+                alt="Teknisi Sabit Jaya Service sedang melayani cuci AC"
                 className="w-[95%] max-w-[620px] object-contain drop-shadow-2xl sm:w-[85%] lg:w-[680px]"
                 animate={{
                   y: [0, -12, 0],
@@ -180,4 +180,4 @@ export function CuciAcHero() {
       />
     </section>
   );
-          }
+                    }

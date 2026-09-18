@@ -15,14 +15,14 @@ const steps = [
     icon: PhoneCall,
     title: 'Konsultasi',
     description:
-      'Hubungi Dokter Sejuk untuk menyampaikan kebutuhan dan masalah AC Anda. Ceritakan kondisi AC, keluhan yang terjadi, serta layanan yang Anda butuhkan. Tim kami akan membantu memberikan informasi awal dan mengarahkan layanan yang paling sesuai dengan kondisi AC Anda.',
+      'Hubungi Sabit Jaya Service untuk menyampaikan kebutuhan dan masalah AC Anda. Ceritakan kondisi AC, keluhan yang terjadi, serta layanan yang Anda butuhkan. Tim kami akan membantu memberikan informasi awal dan mengarahkan layanan yang paling sesuai dengan kondisi AC Anda.',
     image: '/images/konsultasi.jpg',
   },
   {
     icon: ClipboardCheck,
     title: 'Pengecekan',
     description:
-      'Teknisi Dokter Sejuk melakukan pemeriksaan AC secara menyeluruh sebelum menentukan tindakan. Kondisi unit indoor dan outdoor akan diperiksa untuk mencari penyebab masalah yang terjadi, sehingga pengerjaan tidak dilakukan secara asal dan tindakan yang diberikan benar-benar sesuai kebutuhan.',
+      'Teknisi Sabit Jaya Service melakukan pemeriksaan AC secara menyeluruh sebelum menentukan tindakan. Kondisi unit indoor dan outdoor akan diperiksa untuk mencari penyebab masalah yang terjadi, sehingga pengerjaan tidak dilakukan secara asal dan tindakan yang diberikan benar-benar sesuai kebutuhan.',
     image: '/images/pengecekan.jpg',
   },
   {
@@ -43,7 +43,7 @@ const steps = [
     icon: ShieldCheck,
     title: 'Garansi',
     description:
-      'Setelah pekerjaan selesai, teknisi memastikan kembali kondisi AC dan menjelaskan hasil pengerjaan kepada customer. Dokter Sejuk memberikan garansi 30 hari sesuai ketentuan layanan, sehingga customer mendapatkan rasa aman dan lebih tenang setelah menggunakan jasa service AC kami.',
+      'Setelah pekerjaan selesai, teknisi memastikan kembali kondisi AC dan menjelaskan hasil pengerjaan kepada customer. Sabit Jaya Service memberikan garansi 30 hari sesuai ketentuan layanan, sehingga customer mendapatkan rasa aman dan lebih tenang setelah menggunakan jasa service AC kami.',
     image: '/images/garansi.jpg',
   },
 ];
@@ -186,7 +186,7 @@ export function ServiceProcess() {
           <h2 className="mt-5 text-2xl font-bold tracking-tight text-white sm:text-3xl lg:text-4xl">
             Bagaimana Proses Service AC di{' '}
             <span className="text-[#67E8F9]">
-              Dokter Sejuk?
+              Sabit Jaya Service?
             </span>
           </h2>
 
@@ -256,7 +256,7 @@ export function ServiceProcess() {
                   <div className="relative aspect-[4/3] overflow-hidden">
                     <Image
                       src={step.image}
-                      alt={`${step.title} - Proses Service AC Dokter Sejuk`}
+                      alt={`${step.title} - Proses Service AC Sabit Jaya Service`}
                       fill
                       sizes="
                         (max-width: 639px) 88vw,

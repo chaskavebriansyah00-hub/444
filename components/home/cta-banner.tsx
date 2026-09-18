@@ -15,7 +15,7 @@ export function CtaBanner() {
         >
           <img
             src="/images/hero/service-ac-banner.png"
-            alt="Spesialis layanan service AC Dokter Sejuk"
+            alt="Spesialis layanan service AC Sabit Jaya Service"
             className="block h-auto w-full"
           />
         </motion.div>

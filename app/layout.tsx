@@ -26,11 +26,11 @@ export const metadata: Metadata = {
 
   title: {
     default: 'Jasa Service AC Terdekat | Profesional & Bergaransi',
-    template: '%s | Dokter Sejuk AC',
+    template: '%s | Sabit Jaya Service',
   },
 
   description:
-    'Dokter Sejuk AC adalah jasa service AC profesional di Indonesia. Cuci AC, isi freon, perbaikan, bongkar-pasang, dan perawatan berkala dengan teknisi profesional, harga transparan, dan garansi 30 hari.',
+    'Sabit Jaya Service adalah jasa service AC profesional di Indonesia. Cuci AC, isi freon, perbaikan, bongkar-pasang, dan perawatan berkala dengan teknisi profesional, harga transparan, dan garansi 30 hari.',
 
   keywords: [
     'jasa service AC terdekat',
@@ -40,14 +40,14 @@ export const metadata: Metadata = {
     'isi freon',
     'perbaikan AC',
     'bongkar pasang AC',
-    'Dokter Sejuk AC',
+    'Sabit Jaya Service',
     'teknisi AC profesional',
     'maintenance AC',
   ],
 
-  authors: [{ name: 'Dokter Sejuk AC' }],
-  creator: 'Dokter Sejuk AC',
-  publisher: 'Dokter Sejuk AC',
+  authors: [{ name: 'Sabit Jaya Service' }],
+  creator: 'Sabit Jaya Service',
+  publisher: 'Sabit Jaya Service',
 
   icons: {
     icon: '/favicon.png',
@@ -63,16 +63,16 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'id_ID',
     url: siteUrl,
-    siteName: 'Dokter Sejuk AC',
+    siteName: 'Sabit Jaya Service',
     title: 'Jasa Service AC Terdekat | Profesional & Bergaransi',
     description:
-      'Dokter Sejuk AC menyediakan jasa service AC profesional dengan teknisi berpengalaman, harga transparan, dan garansi 30 hari.',
+      'Sabit Jaya Service menyediakan jasa service AC profesional dengan teknisi berpengalaman, harga transparan, dan garansi 30 hari.',
     images: [
       {
         url: '/logo-dokter-sejuk-ac-transparent.png',
         width: 512,
         height: 512,
-        alt: 'Dokter Sejuk AC',
+        alt: 'Sabit Jaya Service',
       },
     ],
   },
@@ -81,7 +81,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Jasa Service AC Terdekat | Profesional & Bergaransi',
     description:
-      'Dokter Sejuk AC menyediakan jasa service AC profesional dengan teknisi berpengalaman, harga transparan, dan garansi 30 hari.',
+      'Sabit Jaya Service menyediakan jasa service AC profesional dengan teknisi berpengalaman, harga transparan, dan garansi 30 hari.',
     images: ['/logo-dokter-sejuk-ac-transparent.png'],
   },
 
@@ -111,8 +111,8 @@ const organizationLd = {
   '@context': 'https://schema.org',
   '@type': 'HVACBusiness',
   '@id': `${siteUrl}/#organization`,
-  name: 'Dokter Sejuk AC',
-  alternateName: 'Dokter Sejuk',
+  name: 'Sabit Jaya Service',
+  alternateName: 'SJS',
   url: siteUrl,
   logo: `${siteUrl}/logo-dokter-sejuk-ac-transparent.png`,
   image: `${siteUrl}/logo-dokter-sejuk-ac-transparent.png`,
@@ -157,8 +157,8 @@ const organizationLd = {
   ],
 
   sameAs: [
-    'https://www.instagram.com/doktersejukac',
-    'https://www.facebook.com/doktersejukac',
+    'https://www.instagram.com/sabitjayaservice',
+    'https://www.facebook.com/sabitjayaservice',
     'https://wa.me/6285884011908',
   ],
 
@@ -174,8 +174,8 @@ const websiteLd = {
   '@type': 'WebSite',
   '@id': `${siteUrl}/#website`,
   url: siteUrl,
-  name: 'Dokter Sejuk AC',
-  alternateName: 'Dokter Sejuk',
+  name: 'Sabit Jaya Service',
+  alternateName: 'SJS',
   publisher: {
     '@id': `${siteUrl}/#organization`,
   },
@@ -184,7 +184,7 @@ const websiteLd = {
 const serviceLd = {
   '@context': 'https://schema.org',
   '@type': 'OfferCatalog',
-  name: 'Layanan Dokter Sejuk AC',
+  name: 'Layanan Sabit Jaya Service',
   itemListElement: [
     {
       '@type': 'Offer',
@@ -222,7 +222,7 @@ const faqLd = {
   mainEntity: [
     {
       '@type': 'Question',
-      name: 'Apakah teknisi Dokter Sejuk AC bersertifikat?',
+      name: 'Apakah teknisi Sabit Jaya Service bersertifikat?',
       acceptedAnswer: {
         '@type': 'Answer',
         text: 'Teknisi kami profesional dan berpengalaman menangani berbagai merek dan tipe AC, dari split, cassette, hingga central AC.',
@@ -233,7 +233,7 @@ const faqLd = {
       name: 'Apakah ada garansi setelah service?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Ya. Setiap layanan Dokter Sejuk AC diberikan garansi selama 30 hari. Jika terjadi masalah yang tercakup dalam garansi, kami siap melakukan pemeriksaan dan perbaikan sesuai ketentuan garansi.',
+        text: 'Ya. Setiap layanan Sabit Jaya Service diberikan garansi selama 30 hari. Jika terjadi masalah yang tercakup dalam garansi, kami siap melakukan pemeriksaan dan perbaikan sesuai ketentuan garansi.',
       },
     },
     {
@@ -319,4 +319,4 @@ export default function RootLayout({
       </body>
     </html>
   );
-        }
+}

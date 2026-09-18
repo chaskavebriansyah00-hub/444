@@ -170,7 +170,7 @@ export function Hero() {
               >
                 <motion.img
                   src="/home-2-transparent.png"
-                  alt="Teknisi Dokter Sejuk AC"
+                  alt="Teknisi Sabit Jaya Service"
                   className="w-[95%] max-w-[620px] object-contain drop-shadow-2xl sm:w-[85%] lg:w-[680px]"
                   animate={{
                     y: [0, -12, 0],
@@ -195,4 +195,4 @@ export function Hero() {
       </section>
     </>
   );
-}
+              }

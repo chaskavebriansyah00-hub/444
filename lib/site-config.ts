@@ -5,10 +5,10 @@ export const siteConfig = {
   description:
     'Teknisi berpengalaman, harga transparan, dan garansi resmi untuk cuci AC, isi freon, perbaikan, serta bongkar-pasang se-Indonesia.',
   url: 'https://sabitjayaservice.com',
-  phone: '085884011908',
-  phoneDisplay: '0858-8401-1908',
-  phoneHref: 'tel:085884011908',
-  whatsappHref: 'https://wa.me/6285884011908',
+  phone: '085773334303',
+  phoneDisplay: '0857-7333-4303',
+  phoneHref: 'tel:085773334303',
+  whatsappHref: 'https://wa.me/6285773334303',
   whatsappText:
     'Halo Sabit Jaya Service, saya ingin konsultasi mengenai layanan service AC.',
   email: 'halo@sabitjayaservice.com',

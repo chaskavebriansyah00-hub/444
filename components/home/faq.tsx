@@ -4,14 +4,14 @@ import { ChevronDown, HelpCircle } from 'lucide-react';
 
 const faqItems = [
   {
-    question: 'Apakah teknisi Dokter Sejuk AC bersertifikat?',
+    question: 'Apakah teknisi Sabit Jaya Service bersertifikat?',
     answer:
-      'Teknisi Dokter Sejuk AC berpengalaman menangani berbagai jenis dan merek AC. Sebelum melakukan pekerjaan, teknisi melakukan pemeriksaan kondisi unit terlebih dahulu agar tindakan yang diberikan sesuai dengan kebutuhan AC Anda.',
+      'Teknisi Sabit Jaya Service berpengalaman menangani berbagai jenis dan merek AC. Sebelum melakukan pekerjaan, teknisi melakukan pemeriksaan kondisi unit terlebih dahulu agar tindakan yang diberikan sesuai dengan kebutuhan AC Anda.',
   },
   {
     question: 'Apakah ada garansi setelah service?',
     answer:
-      'Ya. Setiap layanan Dokter Sejuk AC mendapatkan garansi 30 hari sesuai ketentuan layanan. Jika terjadi kendala yang masih termasuk dalam cakupan garansi, kami siap melakukan pemeriksaan dan penanganan sesuai kondisi pekerjaan sebelumnya.',
+      'Ya. Setiap layanan Sabit Jaya Service mendapatkan garansi 30 hari sesuai ketentuan layanan. Jika terjadi kendala yang masih termasuk dalam cakupan garansi, kami siap melakukan pemeriksaan dan penanganan sesuai kondisi pekerjaan sebelumnya.',
   },
   {
     question: 'Berapa lama waktu pengerjaan service AC?',
@@ -21,7 +21,7 @@ const faqItems = [
   {
     question: 'Apakah bisa on-call di hari yang sama?',
     answer:
-      'Bisa. Dokter Sejuk AC menyediakan layanan same-day untuk area yang terjangkau dengan jadwal dan slot teknisi yang tersedia. Silakan hubungi kami melalui WhatsApp untuk mengecek ketersediaan jadwal pada hari tersebut.',
+      'Bisa. Sabit Jaya Service menyediakan layanan same-day untuk area yang terjangkau dengan jadwal dan slot teknisi yang tersedia. Silakan hubungi kami melalui WhatsApp untuk mengecek ketersediaan jadwal pada hari tersebut.',
   },
   {
     question: 'Bagaimana sistem pembayaran?',
@@ -36,12 +36,12 @@ const faqItems = [
   {
     question: 'Merek AC apa saja yang ditangani?',
     answer:
-      'Dokter Sejuk AC melayani berbagai merek AC populer, termasuk Daikin, Panasonic, Sharp, Mitsubishi Electric, LG, Samsung, Gree, Midea, Toshiba, Hitachi, Fujitsu, Polytron, Aqua, TCL, dan berbagai merek lainnya.',
+      'Sabit Jaya Service melayani berbagai merek AC populer, termasuk Daikin, Panasonic, Sharp, Mitsubishi Electric, LG, Samsung, Gree, Midea, Toshiba, Hitachi, Fujitsu, Polytron, Aqua, TCL, dan berbagai merek lainnya.',
   },
   {
     question: 'Apakah ada minimum order untuk area tertentu?',
     answer:
-      'Ketentuan minimum order dapat berbeda berdasarkan lokasi, jenis layanan, dan jarak area pengerjaan. Hubungi tim Dokter Sejuk AC untuk mendapatkan informasi terbaru mengenai ketentuan layanan di wilayah Anda.',
+      'Ketentuan minimum order dapat berbeda berdasarkan lokasi, jenis layanan, dan jarak area pengerjaan. Hubungi tim Sabit Jaya Service untuk mendapatkan informasi terbaru mengenai ketentuan layanan di wilayah Anda.',
   },
 ];
 
@@ -73,8 +73,8 @@ export function Faq() {
 
           <p className="mt-4 text-sm leading-relaxed text-white/85 sm:text-base lg:text-lg">
             Temukan jawaban mengenai layanan, proses pengerjaan, garansi,
-            pembayaran, dan berbagai kebutuhan service AC bersama Dokter Sejuk
-            AC.
+            pembayaran, dan berbagai kebutuhan service AC bersama Sabit Jaya
+            Service.
           </p>
         </div>
 
@@ -121,7 +121,7 @@ export function Faq() {
         <div className="mx-auto mt-10 max-w-5xl overflow-hidden rounded-[8px] bg-white p-2 shadow-lg sm:mt-14 sm:p-3">
           <img
             src="/images/service-ac-semua-merk.png"
-            alt="Service AC semua merek Dokter Sejuk AC"
+            alt="Service AC semua merek Sabit Jaya Service"
             className="block h-auto w-full rounded-[6px] object-cover"
             loading="lazy"
           />
@@ -129,4 +129,4 @@ export function Faq() {
       </div>
     </section>
   );
-}
+  }

@@ -51,7 +51,7 @@ function ServiceCard({
   }, []);
 
   const waText = encodeURIComponent(
-    `Halo Dokter Sejuk AC, saya ingin booking layanan "${card.title}". Mohon info selengkapnya.`
+    `Halo Sabit Jaya Service, saya ingin booking layanan "${card.title}". Mohon info selengkapnya.`
   );
 
   const waHref = `${siteConfig.whatsappHref}?text=${waText}`;
@@ -61,9 +61,7 @@ function ServiceCard({
       ref={cardRef}
       style={{
         opacity: visible ? 1 : 0,
-        transform: visible
-          ? 'scale(1)'
-          : 'scale(0.88)',
+        transform: visible ? 'scale(1)' : 'scale(0.88)',
         transition: `
           opacity 550ms cubic-bezier(0.22, 1, 0.36, 1)
             ${(index % 3) * 80}ms,
@@ -172,4 +170,4 @@ export function Services() {
       </div>
     </section>
   );
-            }
+}

@@ -80,14 +80,13 @@ function ServiceCard({
         rounded-[8px]
         border
         border-slate-200
-        bg-[#F1F3F5]
-        shadow-[0_8px_24px_-12px_rgba(15,23,42,0.25)]
+        bg-white
+        shadow-[0_8px_24px_-12px_rgba(0,0,0,0.45)]
         transition-all
         duration-300
         hover:-translate-y-1
-        hover:border-[#22C55E]/40
-        hover:bg-[#F4F6F7]
-        hover:shadow-[0_16px_32px_-12px_rgba(34,197,94,0.22)]
+        hover:border-[#22C55E]/50
+        hover:shadow-[0_16px_35px_-12px_rgba(34,197,94,0.25)]
       "
     >
       {/* Label Populer */}
@@ -117,18 +116,18 @@ function ServiceCard({
       )}
 
       {/* Card Body */}
-      <div className="flex flex-1 flex-col p-4 sm:p-5">
+      <div className="flex flex-1 flex-col p-5 sm:p-6">
         {/* Judul */}
         <h3
           className="
-            pr-14
+            pr-16
             font-display
-            text-base
+            text-lg
             font-bold
             leading-snug
             tracking-tight
             text-slate-900
-            sm:text-lg
+            sm:text-xl
           "
         >
           {card.title}
@@ -141,10 +140,10 @@ function ServiceCard({
               rounded-[6px]
               border
               border-slate-300
-              bg-white
-              px-2.5
-              py-1
-              text-[11px]
+              bg-slate-50
+              px-3
+              py-1.5
+              text-xs
               font-semibold
               text-slate-700
             "
@@ -156,9 +155,9 @@ function ServiceCard({
             className="
               rounded-[6px]
               bg-[#22C55E]
-              px-2.5
-              py-1
-              text-[11px]
+              px-3
+              py-1.5
+              text-xs
               font-bold
               text-white
             "
@@ -172,37 +171,35 @@ function ServiceCard({
         {/* Deskripsi */}
         <p
           className="
-            mt-3
-            text-xs
+            mt-4
+            text-sm
             leading-relaxed
             text-slate-600
-            sm:text-sm
           "
         >
           {card.description}
         </p>
 
         {/* Checklist */}
-        <ul className="mt-4 space-y-2">
+        <ul className="mt-5 space-y-2.5">
           {card.checklist.map((item) => (
             <li
               key={item}
               className="
                 flex
                 items-start
-                gap-2
-                text-xs
+                gap-2.5
+                text-sm
                 leading-relaxed
                 text-slate-700
-                sm:text-sm
               "
             >
               <span
                 className="
                   mt-[2px]
                   flex
-                  h-4
-                  w-4
+                  h-5
+                  w-5
                   shrink-0
                   items-center
                   justify-center
@@ -211,11 +208,7 @@ function ServiceCard({
                 "
               >
                 <Check
-                  className="
-                    h-2.5
-                    w-2.5
-                    text-white
-                  "
+                  className="h-3 w-3 text-white"
                   strokeWidth={3}
                 />
               </span>
@@ -231,7 +224,7 @@ function ServiceCard({
           target="_blank"
           rel="noopener noreferrer"
           className="
-            mt-5
+            mt-6
             flex
             items-center
             justify-center
@@ -240,22 +233,20 @@ function ServiceCard({
             bg-gradient-to-r
             from-[#22C55E]
             to-[#4ADE80]
-            py-2.5
-            text-xs
+            py-3
+            text-sm
             font-bold
             text-white
-            shadow-[0_6px_14px_-6px_rgba(34,197,94,0.6)]
+            shadow-[0_6px_16px_-6px_rgba(34,197,94,0.65)]
             transition-all
             duration-200
             hover:from-[#16A34A]
             hover:to-[#22C55E]
-            hover:shadow-[0_8px_18px_-6px_rgba(34,197,94,0.7)]
+            hover:shadow-[0_8px_20px_-6px_rgba(34,197,94,0.75)]
             active:scale-[0.98]
-            sm:py-3
-            sm:text-sm
           "
         >
-          <FaWhatsapp className="h-4 w-4" />
+          <FaWhatsapp className="h-5 w-5" />
           WhatsApp
         </a>
       </div>
@@ -284,13 +275,15 @@ export function Services() {
           description="Setiap layanan dikerjakan teknisi bersertifikat dengan alat standar dan sparepart original. Pilih layanan, chat langsung via WhatsApp."
         />
 
+        {/* Service Grid */}
         <div
           className="
             mt-8
             grid
-            grid-cols-2
-            gap-3
+            grid-cols-1
+            gap-4
             sm:mt-12
+            sm:grid-cols-2
             sm:gap-5
             lg:grid-cols-3
           "
@@ -306,4 +299,4 @@ export function Services() {
       </div>
     </section>
   );
-}
+      }

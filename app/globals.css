@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    /* Brand palette — cool, professional, friendly */
+    /* Brand palette — fresh green, professional, friendly */
     --background: 210 50% 97%;
     --foreground: 222 47% 11%;
 
@@ -14,19 +14,20 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222 47% 11%;
 
-    /* Primary Blue — confident, cooling */
-    --primary: 211 100% 50%;
+    /* Primary Green — fresh & bright */
+    --primary: 142 71% 45%;
     --primary-foreground: 0 0% 100%;
-    --primary-50: 213 100% 97%;
-    --primary-100: 214 95% 93%;
-    --primary-200: 213 97% 87%;
-    --primary-300: 212 96% 78%;
-    --primary-400: 213 94% 68%;
-    --primary-500: 211 100% 50%;
-    --primary-600: 212 99% 44%;
-    --primary-700: 215 89% 39%;
-    --primary-800: 217 79% 35%;
-    --primary-900: 222 67% 30%;
+
+    --primary-50: 138 76% 97%;
+    --primary-100: 141 79% 93%;
+    --primary-200: 141 78% 86%;
+    --primary-300: 142 76% 74%;
+    --primary-400: 142 72% 60%;
+    --primary-500: 142 71% 45%;
+    --primary-600: 142 72% 39%;
+    --primary-700: 142 71% 33%;
+    --primary-800: 143 64% 28%;
+    --primary-900: 144 61% 24%;
 
     /* Soft Gray neutrals */
     --secondary: 210 40% 96%;
@@ -35,10 +36,10 @@
     --muted: 210 40% 96%;
     --muted-foreground: 215 16% 47%;
 
-    /* Green accent — small, supportive */
-    --accent: 160 84% 39%;
+    /* Green accent */
+    --accent: 142 71% 45%;
     --accent-foreground: 0 0% 100%;
-    --accent-soft: 160 60% 95%;
+    --accent-soft: 138 76% 95%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
@@ -48,44 +49,64 @@
 
     --border: 214 32% 91%;
     --input: 214 32% 91%;
-    --ring: 211 100% 50%;
+    --ring: 142 71% 45%;
 
     --radius: 0.875rem;
 
-    --chart-1: 211 100% 50%;
+    /* Charts */
+    --chart-1: 142 71% 45%;
     --chart-2: 160 84% 39%;
     --chart-3: 38 92% 50%;
-    --chart-4: 199 89% 48%;
-    --chart-5: 280 65% 60%;
+    --chart-4: 151 68% 45%;
+    --chart-5: 172 66% 45%;
 
-    --shadow-soft: 0 1px 2px 0 rgb(15 23 42 / 0.04), 0 4px 16px -2px rgb(15 23 42 / 0.06);
-    --shadow-card: 0 1px 3px 0 rgb(15 23 42 / 0.05), 0 10px 30px -8px rgb(15 23 42 / 0.08);
-    --shadow-elevated: 0 4px 6px -2px rgb(15 23 42 / 0.06), 0 20px 50px -12px rgb(15 23 42 / 0.18);
+    --shadow-soft:
+      0 1px 2px 0 rgb(15 23 42 / 0.04),
+      0 4px 16px -2px rgb(15 23 42 / 0.06);
+
+    --shadow-card:
+      0 1px 3px 0 rgb(15 23 42 / 0.05),
+      0 10px 30px -8px rgb(15 23 42 / 0.08);
+
+    --shadow-elevated:
+      0 4px 6px -2px rgb(15 23 42 / 0.06),
+      0 20px 50px -12px rgb(15 23 42 / 0.18);
   }
 
   .dark {
     --background: 222 47% 7%;
     --foreground: 210 40% 98%;
+
     --card: 222 40% 10%;
     --card-foreground: 210 40% 98%;
+
     --popover: 222 40% 10%;
     --popover-foreground: 210 40% 98%;
-    --primary: 211 100% 55%;
+
+    /* Dark mode primary green */
+    --primary: 142 71% 52%;
     --primary-foreground: 222 47% 11%;
+
     --secondary: 217 33% 16%;
     --secondary-foreground: 210 40% 98%;
+
     --muted: 217 33% 16%;
     --muted-foreground: 215 20% 65%;
-    --accent: 160 84% 45%;
+
+    --accent: 142 71% 52%;
     --accent-foreground: 222 47% 11%;
-    --accent-soft: 160 40% 16%;
+    --accent-soft: 142 40% 16%;
+
     --destructive: 0 63% 31%;
     --destructive-foreground: 210 40% 98%;
+
     --warning: 38 92% 55%;
     --warning-foreground: 222 47% 11%;
+
     --border: 217 33% 20%;
     --input: 217 33% 20%;
-    --ring: 211 100% 55%;
+
+    --ring: 142 71% 52%;
   }
 }
 
@@ -96,6 +117,7 @@
 
   body {
     @apply bg-background text-foreground antialiased;
+
     font-feature-settings: 'cv11', 'ss01';
     text-rendering: optimizeLegibility;
 
@@ -115,7 +137,6 @@
 
   /*
    * Judul dibuat sedikit lebih kecil secara global.
-   * Tidak terlalu drastis agar tetap nyaman dibaca.
    */
   h1 {
     font-size: 2.15rem;
@@ -173,13 +194,27 @@
 
   .bg-grid {
     background-image:
-      linear-gradient(to right, hsl(var(--border) / 0.5) 1px, transparent 1px),
-      linear-gradient(to bottom, hsl(var(--border) / 0.5) 1px, transparent 1px);
+      linear-gradient(
+        to right,
+        hsl(var(--border) / 0.5) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        to bottom,
+        hsl(var(--border) / 0.5) 1px,
+        transparent 1px
+      );
+
     background-size: 56px 56px;
   }
 
   .bg-dot {
-    background-image: radial-gradient(hsl(var(--border)) 1px, transparent 1px);
+    background-image:
+      radial-gradient(
+        hsl(var(--border)) 1px,
+        transparent 1px
+      );
+
     background-size: 24px 24px;
   }
 
@@ -196,13 +231,35 @@
   }
 
   .mask-fade-b {
-    -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
-    mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+    -webkit-mask-image:
+      linear-gradient(
+        to bottom,
+        black 60%,
+        transparent 100%
+      );
+
+    mask-image:
+      linear-gradient(
+        to bottom,
+        black 60%,
+        transparent 100%
+      );
   }
 
   .mask-fade-r {
-    -webkit-mask-image: linear-gradient(to right, black 70%, transparent 100%);
-    mask-image: linear-gradient(to right, black 70%, transparent 100%);
+    -webkit-mask-image:
+      linear-gradient(
+        to right,
+        black 70%,
+        transparent 100%
+      );
+
+    mask-image:
+      linear-gradient(
+        to right,
+        black 70%,
+        transparent 100%
+      );
   }
 
   .animate-float {
@@ -227,7 +284,8 @@
   }
 
   @keyframes float {
-    0%, 100% {
+    0%,
+    100% {
       transform: translateY(0);
     }
 
@@ -237,7 +295,8 @@
   }
 
   @keyframes blob {
-    0%, 100% {
+    0%,
+    100% {
       transform: translate(0, 0) scale(1);
     }
 
@@ -270,41 +329,52 @@
     }
   }
 
-  /* Premium floating CTA animations */
+  /* ==========================================================
+     PREMIUM FLOATING CTA
+     GREEN VERSION
+  ========================================================== */
+
   @keyframes fcta-glow-phone {
-    0%, 100% {
+    0%,
+    100% {
       box-shadow:
-        0 10px 30px rgba(0,0,0,.25),
-        0 0 14px rgba(24,119,242,.35);
+        0 10px 30px rgba(0, 0, 0, 0.25),
+        0 0 14px rgba(34, 197, 94, 0.35);
+
       opacity: 1;
     }
 
     50% {
       box-shadow:
-        0 10px 30px rgba(0,0,0,.25),
-        0 0 26px rgba(24,119,242,.55);
-      opacity: .97;
+        0 10px 30px rgba(0, 0, 0, 0.25),
+        0 0 26px rgba(74, 222, 128, 0.55);
+
+      opacity: 0.97;
     }
   }
 
   @keyframes fcta-glow-wa {
-    0%, 100% {
+    0%,
+    100% {
       box-shadow:
-        0 10px 30px rgba(0,0,0,.25),
-        0 0 14px rgba(37,211,102,.35);
+        0 10px 30px rgba(0, 0, 0, 0.25),
+        0 0 14px rgba(34, 197, 94, 0.35);
+
       opacity: 1;
     }
 
     50% {
       box-shadow:
-        0 10px 30px rgba(0,0,0,.25),
-        0 0 26px rgba(37,211,102,.55);
-      opacity: .97;
+        0 10px 30px rgba(0, 0, 0, 0.25),
+        0 0 26px rgba(134, 239, 172, 0.55);
+
+      opacity: 0.97;
     }
   }
 
   @keyframes fcta-float {
-    0%, 100% {
+    0%,
+    100% {
       transform: translateY(0);
     }
 
@@ -318,17 +388,20 @@
       transform: translateX(-150%) skewX(-18deg);
     }
 
-    60%, 100% {
+    60%,
+    100% {
       transform: translateX(250%) skewX(-18deg);
     }
   }
 
   .fcta-btn {
     animation: fcta-float 3s ease-in-out infinite;
+
     transition:
-      transform .3s ease,
-      box-shadow .3s ease,
-      opacity .3s ease;
+      transform 0.3s ease,
+      box-shadow 0.3s ease,
+      opacity 0.3s ease;
+
     will-change: transform, box-shadow, opacity;
   }
 
@@ -354,28 +427,33 @@
 
   .fcta-btn--phone:hover {
     box-shadow:
-      0 14px 38px rgba(0,0,0,.3),
-      0 0 34px rgba(24,119,242,.7);
+      0 14px 38px rgba(0, 0, 0, 0.3),
+      0 0 34px rgba(34, 197, 94, 0.7);
   }
 
   .fcta-btn--wa:hover {
     box-shadow:
-      0 14px 38px rgba(0,0,0,.3),
-      0 0 34px rgba(37,211,102,.7);
+      0 14px 38px rgba(0, 0, 0, 0.3),
+      0 0 34px rgba(74, 222, 128, 0.7);
   }
 
   .fcta-shine::before {
     content: '';
+
     position: absolute;
     inset: 0;
+
     background: linear-gradient(
       110deg,
       transparent 35%,
-      rgba(255,255,255,.45) 50%,
+      rgba(255, 255, 255, 0.45) 50%,
       transparent 65%
     );
+
     transform: translateX(-150%) skewX(-18deg);
+
     animation: fcta-shine 4.5s ease-in-out infinite;
+
     pointer-events: none;
   }
 
@@ -389,7 +467,10 @@
   }
 }
 
-/* Custom scrollbar */
+/* ============================================================
+   CUSTOM SCROLLBAR
+============================================================ */
+
 ::-webkit-scrollbar {
   width: 10px;
   height: 10px;
@@ -409,7 +490,10 @@
   background: hsl(var(--primary) / 0.6);
 }
 
-/* Global section spacing — very compact & smooth */
+/* ============================================================
+   GLOBAL SECTION SPACING
+============================================================ */
+
 @layer utilities {
   main > section {
     padding-top: 1rem !important;

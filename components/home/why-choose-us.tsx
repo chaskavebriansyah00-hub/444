@@ -54,6 +54,7 @@ export function WhyChooseUs() {
 
   const onSelect = useCallback(() => {
     if (!emblaApi) return;
+
     setSelectedIndex(emblaApi.selectedScrollSnap());
   }, [emblaApi]);
 
@@ -65,7 +66,9 @@ export function WhyChooseUs() {
 
     emblaApi.on('select', onSelect);
 
-    return () => emblaApi.off('select', onSelect);
+    return () => {
+      emblaApi.off('select', onSelect);
+    };
   }, [emblaApi, onSelect]);
 
   useEffect(() => {
@@ -75,22 +78,42 @@ export function WhyChooseUs() {
     let autoplayTimer: ReturnType<typeof setInterval> | undefined;
 
     const startAutoplay = () => {
-      clearInterval(autoplayTimer);
-      autoplayTimer = setInterval(() => emblaApi.scrollNext(), 5000);
+      if (autoplayTimer !== undefined) {
+        clearInterval(autoplayTimer);
+      }
+
+      autoplayTimer = setInterval(() => {
+        emblaApi.scrollNext();
+      }, 5000);
     };
 
     const pauseAutoplay = () => {
-      clearInterval(autoplayTimer);
-      clearTimeout(resumeTimer);
-      resumeTimer = setTimeout(startAutoplay, 1800);
+      if (autoplayTimer !== undefined) {
+        clearInterval(autoplayTimer);
+      }
+
+      if (resumeTimer !== undefined) {
+        clearTimeout(resumeTimer);
+      }
+
+      resumeTimer = setTimeout(() => {
+        startAutoplay();
+      }, 1800);
     };
 
     startAutoplay();
+
     emblaApi.on('pointerDown', pauseAutoplay);
 
     return () => {
-      clearInterval(autoplayTimer);
-      clearTimeout(resumeTimer);
+      if (autoplayTimer !== undefined) {
+        clearInterval(autoplayTimer);
+      }
+
+      if (resumeTimer !== undefined) {
+        clearTimeout(resumeTimer);
+      }
+
       emblaApi.off('pointerDown', pauseAutoplay);
     };
   }, [emblaApi]);
@@ -100,7 +123,9 @@ export function WhyChooseUs() {
       id="tentang"
       className="relative overflow-hidden bg-[#030504] py-12 sm:py-20 lg:py-24"
     >
-      {/* ===== Premium Glossy Background ===== */}
+      {/* =====================================================
+          GLOSSY BLACK BACKGROUND
+          ===================================================== */}
       <div
         className="pointer-events-none absolute inset-0"
         aria-hidden="true"
@@ -110,7 +135,7 @@ export function WhyChooseUs() {
         }}
       />
 
-      {/* Corak putih */}
+      {/* Corak diagonal putih */}
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.10]"
         aria-hidden="true"
@@ -120,13 +145,13 @@ export function WhyChooseUs() {
         }}
       />
 
-      {/* Grid putih tipis */}
+      {/* Grid putih sangat tipis */}
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.05]"
         aria-hidden="true"
         style={{
           backgroundImage:
-            'linear-gradient(rgba(255,255,255,.25) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.25) 1px, transparent 1px)',
+            'linear-gradient(rgba(255,255,255,0.25) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.25) 1px, transparent 1px)',
           backgroundSize: '70px 70px',
         }}
       />
@@ -143,6 +168,7 @@ export function WhyChooseUs() {
           repeat: Infinity,
           ease: 'easeInOut',
         }}
+        aria-hidden="true"
       />
 
       {/* Glow hijau */}
@@ -158,20 +184,38 @@ export function WhyChooseUs() {
           repeat: Infinity,
           ease: 'easeInOut',
         }}
+        aria-hidden="true"
       />
 
       {/* Garis lengkung putih */}
-      <div className="pointer-events-none absolute -left-52 top-12 h-[1100px] w-[1100px] rounded-full border border-white/15" />
-      <div className="pointer-events-none absolute -left-36 top-28 h-[1100px] w-[1100px] rounded-full border border-white/8" />
-      <div className="pointer-events-none absolute -right-60 bottom-[-450px] h-[1100px] w-[1100px] rounded-full border border-white/15" />
-      <div className="pointer-events-none absolute -right-44 bottom-[-340px] h-[1100px] w-[1100px] rounded-full border border-white/8" />
+      <div
+        className="pointer-events-none absolute -left-52 top-12 h-[1100px] w-[1100px] rounded-full border border-white/15"
+        aria-hidden="true"
+      />
+
+      <div
+        className="pointer-events-none absolute -left-36 top-28 h-[1100px] w-[1100px] rounded-full border border-white/8"
+        aria-hidden="true"
+      />
+
+      <div
+        className="pointer-events-none absolute -right-60 bottom-[-450px] h-[1100px] w-[1100px] rounded-full border border-white/15"
+        aria-hidden="true"
+      />
+
+      <div
+        className="pointer-events-none absolute -right-44 bottom-[-340px] h-[1100px] w-[1100px] rounded-full border border-white/8"
+        aria-hidden="true"
+      />
 
       <div className="container-page relative z-10">
-        {/* Heading */}
+        {/* ===================================================
+            HEADING
+            =================================================== */}
         <div className="mx-auto max-w-4xl text-center">
-          <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/10 px-4 py-2 text-sm font-semibold text-[#86EFAC] backdrop-blur-sm shadow-lg">
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/10 px-4 py-2 text-sm font-semibold text-[#86EFAC] shadow-lg backdrop-blur-sm">
             <span className="h-2 w-2 rounded-full bg-[#22C55E]" />
-            Kenapa Harus Sabit Jaya Service
+            <span>Kenapa Harus Sabit Jaya Service</span>
           </div>
 
           <h2 className="mt-5 font-display text-[2rem] font-bold leading-tight tracking-tight text-white sm:text-[2.35rem] lg:text-[2.75rem]">
@@ -185,8 +229,13 @@ export function WhyChooseUs() {
           </p>
         </div>
 
-        {/* Carousel */}
-        <div ref={emblaRef} className="mt-9 overflow-hidden sm:mt-12">
+        {/* ===================================================
+            CAROUSEL
+            =================================================== */}
+        <div
+          ref={emblaRef}
+          className="mt-9 overflow-hidden sm:mt-12"
+        >
           <div className="-ml-5 flex touch-pan-y">
             {reasons.map((reason, index) => {
               const Icon = reason.icon;
@@ -197,29 +246,44 @@ export function WhyChooseUs() {
                   className="min-w-0 flex-[0_0_100%] pl-5 sm:flex-[0_0_50%] lg:flex-[0_0_33.333333%]"
                 >
                   <motion.article
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: '-60px' }}
-                    transition={{ duration: 0.5, delay: index * 0.08 }}
-                    className="group flex h-full min-h-[490px] flex-col overflow-hidden rounded-[8px] border border-slate-200 bg-[#F7FAFF] shadow-[0_18px_45px_-20px_rgba(0,0,0,.75)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_55px_-20px_rgba(0,0,0,.85)]"
+                    initial={{
+                      opacity: 0,
+                      y: 20,
+                    }}
+                    whileInView={{
+                      opacity: 1,
+                      y: 0,
+                    }}
+                    viewport={{
+                      once: true,
+                      margin: '-60px',
+                    }}
+                    transition={{
+                      duration: 0.5,
+                      delay: index * 0.08,
+                    }}
+                    className="group flex h-full min-h-[490px] flex-col overflow-hidden rounded-[8px] border border-slate-200 bg-[#F7FAFF] shadow-[0_18px_45px_-20px_rgba(0,0,0,0.75)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_55px_-20px_rgba(0,0,0,0.85)]"
                   >
-                    {/* Foto */}
-                    <div className="relative aspect-video overflow-visible">
+                    {/* FOTO */}
+                    <div className="relative aspect-video shrink-0 overflow-visible">
                       <img
                         src={reason.image}
                         alt={reason.title}
                         className="h-full w-full rounded-t-[8px] object-cover"
                       />
 
-                      {/* Icon */}
+                      {/* ICON */}
                       <span className="absolute bottom-0 left-1/2 flex h-12 w-12 -translate-x-1/2 translate-y-1/2 items-center justify-center rounded-[8px] border-4 border-[#F7FAFF] bg-[#1677E8] text-white shadow-lg">
-                        <Icon className="h-5 w-5" />
+                        <Icon
+                          className="h-5 w-5"
+                          strokeWidth={2}
+                        />
                       </span>
                     </div>
 
-                    {/* Isi */}
+                    {/* ISI CARD */}
                     <div className="flex flex-1 flex-col items-center px-6 pb-7 pt-10 text-center">
-                      <h3 className="font-display text-[1.12rem] font-bold text-[#0F2342]">
+                      <h3 className="font-display text-[1.12rem] font-bold tracking-tight text-[#0F2342]">
                         {reason.title}
                       </h3>
 
@@ -234,17 +298,26 @@ export function WhyChooseUs() {
           </div>
         </div>
 
-        {/* Pagination */}
-        <div className="mt-6 flex items-center justify-center gap-2 sm:mt-7">
+        {/* ===================================================
+            PAGINATION
+            =================================================== */}
+        <div
+          className="mt-6 flex items-center justify-center gap-2 sm:mt-7"
+          aria-label="Carousel pagination"
+        >
           {scrollSnaps.map((_, index) => (
             <button
               key={index}
               type="button"
-              onClick={() => emblaApi?.scrollTo(index)}
+              aria-label={`Go to slide ${index + 1}`}
+              aria-current={selectedIndex === index}
+              onClick={() => {
+                emblaApi?.scrollTo(index);
+              }}
               className={
                 selectedIndex === index
                   ? 'h-2 w-7 rounded-full bg-[#22C55E]'
-                  : 'h-2 w-2 rounded-full bg-white/35'
+                  : 'h-2 w-2 rounded-full bg-white/35 hover:bg-white/60'
               }
             />
           ))}
@@ -252,4 +325,4 @@ export function WhyChooseUs() {
       </div>
     </section>
   );
-    }
+      }

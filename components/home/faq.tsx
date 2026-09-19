@@ -49,29 +49,122 @@ export function Faq() {
   return (
     <section
       id="faq"
-      className="relative overflow-hidden bg-gradient-to-br from-[#0756D9] via-[#1269E8] to-[#1688F5] py-14 sm:py-20 lg:py-24"
+      className="relative overflow-hidden bg-[#030504] py-14 sm:py-20 lg:py-24"
     >
-      {/* Dekorasi garis */}
+      {/* =====================================================
+          BLACK GLOSSY BACKGROUND
+          Sama dengan Tentang Kami & Proses
+      ===================================================== */}
+
       <div
-        className="pointer-events-none absolute inset-0 opacity-20"
+        className="pointer-events-none absolute inset-0"
         aria-hidden="true"
-      >
-        <div className="absolute -left-32 top-20 h-72 w-[700px] rotate-[8deg] rounded-[50%] border border-white/60" />
-        <div className="absolute -right-40 bottom-10 h-72 w-[700px] -rotate-[8deg] rounded-[50%] border border-white/60" />
-      </div>
+        style={{
+          background:
+            'radial-gradient(circle at 15% 20%, rgba(255,255,255,0.08), transparent 28%), radial-gradient(circle at 85% 75%, rgba(34,197,94,0.10), transparent 30%), linear-gradient(135deg, #020303 0%, #090d0b 45%, #020303 100%)',
+        }}
+      />
+
+      {/* =====================================================
+          WHITE DIAGONAL PATTERN
+      ===================================================== */}
+
+      <div
+        className="pointer-events-none absolute inset-0 opacity-[0.10]"
+        aria-hidden="true"
+        style={{
+          backgroundImage:
+            'repeating-linear-gradient(135deg, transparent 0px, transparent 34px, rgba(255,255,255,0.22) 35px, transparent 36px, transparent 72px)',
+        }}
+      />
+
+      {/* =====================================================
+          FINE WHITE GRID
+      ===================================================== */}
+
+      <div
+        className="pointer-events-none absolute inset-0 opacity-[0.055]"
+        aria-hidden="true"
+        style={{
+          backgroundImage:
+            'linear-gradient(rgba(255,255,255,0.35) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.35) 1px, transparent 1px)',
+          backgroundSize: '70px 70px',
+        }}
+      />
+
+      {/* =====================================================
+          SOFT WHITE GLOW
+      ===================================================== */}
+
+      <div
+        className="pointer-events-none absolute -left-32 -top-32 h-[420px] w-[420px] rounded-full bg-white/[0.05] blur-3xl"
+        aria-hidden="true"
+      />
+
+      {/* =====================================================
+          GREEN GLOW
+      ===================================================== */}
+
+      <div
+        className="pointer-events-none absolute -bottom-40 -right-32 h-[500px] w-[500px] rounded-full bg-[#22C55E]/[0.08] blur-3xl"
+        aria-hidden="true"
+      />
+
+      {/* =====================================================
+          DECORATIVE WHITE CURVED LINES
+      ===================================================== */}
+
+      <div
+        className="pointer-events-none absolute -left-48 top-16 h-[520px] w-[900px] rounded-[50%] border border-white/[0.16]"
+        aria-hidden="true"
+      />
+
+      <div
+        className="pointer-events-none absolute -left-40 top-28 h-[520px] w-[900px] rounded-[50%] border border-white/[0.08]"
+        aria-hidden="true"
+      />
+
+      <div
+        className="pointer-events-none absolute -right-56 bottom-0 h-[520px] w-[950px] rounded-[50%] border border-white/[0.14]"
+        aria-hidden="true"
+      />
+
+      <div
+        className="pointer-events-none absolute -right-48 bottom-12 h-[520px] w-[950px] rounded-[50%] border border-white/[0.07]"
+        aria-hidden="true"
+      />
+
+      {/* =====================================================
+          DECORATIVE DOTS
+      ===================================================== */}
+
+      <div
+        className="pointer-events-none absolute left-[8%] top-[28%] h-2 w-2 rounded-full bg-white/40 shadow-[0_0_15px_rgba(255,255,255,0.5)]"
+        aria-hidden="true"
+      />
+
+      <div
+        className="pointer-events-none absolute right-[12%] top-[18%] h-1.5 w-1.5 rounded-full bg-white/30"
+        aria-hidden="true"
+      />
+
+      <div
+        className="pointer-events-none absolute right-[25%] bottom-[20%] h-2 w-2 rounded-full bg-[#4ADE80]/60 shadow-[0_0_18px_rgba(74,222,128,0.6)]"
+        aria-hidden="true"
+      />
 
       <div className="container-page relative z-10">
         {/* Heading */}
         <div className="mx-auto max-w-3xl text-center">
-          <span className="inline-flex items-center rounded-[8px] bg-white px-4 py-2 text-xs font-bold uppercase tracking-wide text-[#0756D9] shadow-sm">
+          <span className="inline-flex items-center rounded-[8px] border border-white/10 bg-white/[0.08] px-4 py-2 text-xs font-bold uppercase tracking-wide text-[#86EFAC] shadow-[0_8px_30px_rgba(0,0,0,0.25)] backdrop-blur-sm">
             Sering Ditanyakan
           </span>
 
-          <h2 className="mt-5 font-display text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">
+          <h2 className="mt-5 font-display text-3xl font-bold tracking-tight text-white drop-shadow-[0_4px_15px_rgba(0,0,0,0.5)] sm:text-4xl lg:text-5xl">
             Pertanyaan yang Sering Ditanyakan
           </h2>
 
-          <p className="mt-4 text-sm leading-relaxed text-white/85 sm:text-base lg:text-lg">
+          <p className="mt-4 text-sm leading-relaxed text-white/75 sm:text-base lg:text-lg">
             Temukan jawaban mengenai layanan, proses pengerjaan, garansi,
             pembayaran, dan berbagai kebutuhan service AC bersama Sabit Jaya
             Service.
@@ -83,10 +176,10 @@ export function Faq() {
           {faqItems.map((item) => (
             <details
               key={item.question}
-              className="group overflow-hidden rounded-[8px] border border-white/70 bg-white shadow-[0_10px_30px_-15px_rgba(0,0,0,0.35)] transition-all duration-300 hover:shadow-lg"
+              className="group overflow-hidden rounded-[8px] border border-slate-200 bg-[#F8FBFF] shadow-[0_18px_45px_-20px_rgba(0,0,0,0.7)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_24px_55px_-20px_rgba(0,0,0,0.8)]"
             >
               <summary className="flex cursor-pointer list-none items-center gap-4 px-5 py-5 sm:px-6 sm:py-6 [&::-webkit-details-marker]:hidden">
-                {/* Logo FAQ */}
+                {/* Icon FAQ */}
                 <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[8px] bg-[#E8F2FF] text-[#0878E8]">
                   <HelpCircle
                     className="h-7 w-7"
@@ -118,7 +211,7 @@ export function Faq() {
         </div>
 
         {/* Gambar semua merek */}
-        <div className="mx-auto mt-10 max-w-5xl overflow-hidden rounded-[8px] bg-white p-2 shadow-lg sm:mt-14 sm:p-3">
+        <div className="mx-auto mt-10 max-w-5xl overflow-hidden rounded-[8px] border border-white/10 bg-white p-2 shadow-[0_18px_45px_-20px_rgba(0,0,0,0.7)] sm:mt-14 sm:p-3">
           <img
             src="/images/service-ac-semua-merk.png"
             alt="Service AC semua merek Sabit Jaya Service"
@@ -129,4 +222,4 @@ export function Faq() {
       </div>
     </section>
   );
-  }
+}

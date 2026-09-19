@@ -43,9 +43,6 @@ const locationWhatsAppMessages: Record<string, string> = {
     'Halo Sabit Jaya Service, saya ingin memesan layanan service AC di Bogor. Mohon info jadwal nya.',
 };
 
-/*
- * Menggunakan sumber data yang sama dengan Testimonials.
- */
 const floatingTestimonials = testimonials.slice(0, 6);
 
 const TESTIMONIAL_INTERVAL = 4000;
@@ -55,15 +52,9 @@ export function FloatingContactBar() {
 
   const [testimonialIndex, setTestimonialIndex] = useState(0);
 
-  /*
-   * Normalisasi URL
-   */
   const normalizedPathname =
     pathname?.replace(/\/$/, '') || '/';
 
-  /*
-   * Pesan WhatsApp berdasarkan halaman.
-   */
   const whatsappMessage =
     locationWhatsAppMessages[normalizedPathname] ??
     siteConfig.whatsappText;
@@ -72,11 +63,6 @@ export function FloatingContactBar() {
     siteConfig.whatsappHref
   }?text=${encodeURIComponent(whatsappMessage)}`;
 
-  /*
-   * ==========================================================
-   * ROTASI TESTIMONIAL
-   * ==========================================================
-   */
   useEffect(() => {
     if (floatingTestimonials.length <= 1) {
       return;
@@ -149,7 +135,6 @@ export function FloatingContactBar() {
             shadow-[0_6px_20px_rgba(15,23,42,0.18)]
           "
         >
-          {/* Aksen gradasi */}
           <motion.div
             className="
               absolute
@@ -157,10 +142,7 @@ export function FloatingContactBar() {
               top-0
               h-full
               w-[3px]
-              bg-gradient-to-b
-              from-[#1677E8]
-              via-[#079FCF]
-              to-[#16B86A]
+              bg-[#2563EB]
             "
             animate={{
               opacity: [0.7, 1, 0.7],
@@ -174,8 +156,6 @@ export function FloatingContactBar() {
           />
 
           <div className="px-2.5 py-2">
-            {/* FOTO + NAMA + LOKASI + RATING */}
-
             <div className="flex items-center gap-1.5">
               <motion.img
                 key={testimonialImage}
@@ -205,7 +185,7 @@ export function FloatingContactBar() {
                     text-[9px]
                     font-bold
                     leading-[1.1]
-                    text-[#1677E8]
+                    text-[#2563EB]
                   "
                 >
                   {currentTestimonial.name}
@@ -244,8 +224,6 @@ export function FloatingContactBar() {
               </motion.div>
             </div>
 
-            {/* ULASAN */}
-
             <p
               className="
                 mt-1.5
@@ -258,8 +236,6 @@ export function FloatingContactBar() {
               “{currentTestimonial.quote}”
             </p>
 
-            {/* LABEL */}
-
             <motion.p
               className="
                 mt-1
@@ -268,7 +244,7 @@ export function FloatingContactBar() {
                 font-extrabold
                 uppercase
                 tracking-[0.01em]
-                text-[#1677E8]
+                text-[#2563EB]
               "
               animate={{
                 opacity: [0.6, 1, 0.6],
@@ -286,7 +262,7 @@ export function FloatingContactBar() {
       </AnimatePresence>
 
       {/* ======================================================
-          FLOATING CONTACT BAR
+          FLOATING CONTACT BAR — SEMUA BIRU
       ====================================================== */}
 
       <motion.nav
@@ -325,10 +301,7 @@ export function FloatingContactBar() {
             pointer-events-auto
           "
         >
-          {/* ==================================================
-              TELEPON
-              BIRU
-          ================================================== */}
+          {/* TELEPON — BIRU */}
 
           <motion.a
             href={siteConfig.phoneHref}
@@ -338,9 +311,9 @@ export function FloatingContactBar() {
             }}
             animate={{
               boxShadow: [
-                '0 4px 14px rgba(22,119,232,0.20)',
-                '0 6px 22px rgba(22,119,232,0.38)',
-                '0 4px 14px rgba(22,119,232,0.20)',
+                '0 4px 14px rgba(37,99,235,0.20)',
+                '0 6px 22px rgba(37,99,235,0.40)',
+                '0 4px 14px rgba(37,99,235,0.20)',
               ],
             }}
             transition={{
@@ -359,15 +332,12 @@ export function FloatingContactBar() {
               gap-2
               overflow-hidden
               rounded-[10px]
-              bg-gradient-to-r
-              from-[#075BE8]
-              via-[#1677E8]
-              to-[#079FCF]
+              bg-[#2563EB]
               px-3
               text-white
+              shadow-[0_6px_20px_rgba(37,99,235,0.28)]
             "
           >
-            {/* Shine */}
             <motion.span
               aria-hidden="true"
               className="
@@ -390,7 +360,6 @@ export function FloatingContactBar() {
               }}
             />
 
-            {/* Icon */}
             <motion.span
               className="
                 relative
@@ -427,10 +396,7 @@ export function FloatingContactBar() {
             </span>
           </motion.a>
 
-          {/* ==================================================
-              WHATSAPP
-              HIJAU
-          ================================================== */}
+          {/* WHATSAPP — BIRU */}
 
           <motion.a
             href={whatsappHref}
@@ -442,9 +408,9 @@ export function FloatingContactBar() {
             }}
             animate={{
               boxShadow: [
-                '0 4px 14px rgba(22,184,106,0.20)',
-                '0 6px 22px rgba(22,184,106,0.40)',
-                '0 4px 14px rgba(22,184,106,0.20)',
+                '0 4px 14px rgba(37,99,235,0.20)',
+                '0 6px 22px rgba(37,99,235,0.40)',
+                '0 4px 14px rgba(37,99,235,0.20)',
               ],
             }}
             transition={{
@@ -464,15 +430,12 @@ export function FloatingContactBar() {
               gap-2
               overflow-hidden
               rounded-[10px]
-              bg-gradient-to-r
-              from-[#079F78]
-              via-[#16B86A]
-              to-[#22C55E]
+              bg-[#2563EB]
               px-3
               text-white
+              shadow-[0_6px_20px_rgba(37,99,235,0.28)]
             "
           >
-            {/* Shine */}
             <motion.span
               aria-hidden="true"
               className="
@@ -482,7 +445,7 @@ export function FloatingContactBar() {
                 -left-[70%]
                 w-[28%]
                 skew-x-[-20deg]
-                bg-white/22
+                bg-white/20
               "
               animate={{
                 left: ['-70%', '160%'],
@@ -496,7 +459,6 @@ export function FloatingContactBar() {
               }}
             />
 
-            {/* Icon */}
             <motion.span
               className="
                 relative
@@ -536,4 +498,4 @@ export function FloatingContactBar() {
       </motion.nav>
     </>
   );
-      }
+}

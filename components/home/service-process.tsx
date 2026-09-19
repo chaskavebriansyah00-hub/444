@@ -58,9 +58,7 @@ export function ServiceProcess() {
     if (!slider) return [];
 
     return Array.from(
-      slider.querySelectorAll<HTMLElement>(
-        '[data-process-card]'
-      )
+      slider.querySelectorAll<HTMLElement>('[data-process-card]')
     );
   };
 
@@ -157,20 +155,106 @@ export function ServiceProcess() {
   }, [activeIndex]);
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-[#0756D9] via-[#1268E8] to-[#168AF5] py-12 sm:py-20 lg:py-24">
-      {/* Decorative background */}
+    <section className="relative overflow-hidden bg-[#030504] py-12 sm:py-20 lg:py-24">
+      {/* =====================================================
+          BLACK GLOSSY BACKGROUND
+          Sama dengan Tentang Kami
+      ===================================================== */}
+
       <div
-        className="pointer-events-none absolute -left-48 top-20 h-[520px] w-[900px] rounded-[50%] border border-white/20"
+        className="pointer-events-none absolute inset-0"
+        aria-hidden="true"
+        style={{
+          background:
+            'radial-gradient(circle at 15% 20%, rgba(255,255,255,0.08), transparent 28%), radial-gradient(circle at 85% 75%, rgba(34,197,94,0.10), transparent 30%), linear-gradient(135deg, #020303 0%, #090d0b 45%, #020303 100%)',
+        }}
+      />
+
+      {/* =====================================================
+          WHITE DIAGONAL PATTERN
+      ===================================================== */}
+
+      <div
+        className="pointer-events-none absolute inset-0 opacity-[0.10]"
+        aria-hidden="true"
+        style={{
+          backgroundImage:
+            'repeating-linear-gradient(135deg, transparent 0px, transparent 34px, rgba(255,255,255,0.22) 35px, transparent 36px, transparent 72px)',
+        }}
+      />
+
+      {/* =====================================================
+          FINE WHITE GRID
+      ===================================================== */}
+
+      <div
+        className="pointer-events-none absolute inset-0 opacity-[0.055]"
+        aria-hidden="true"
+        style={{
+          backgroundImage:
+            'linear-gradient(rgba(255,255,255,0.35) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.35) 1px, transparent 1px)',
+          backgroundSize: '70px 70px',
+        }}
+      />
+
+      {/* =====================================================
+          SOFT WHITE GLOW
+      ===================================================== */}
+
+      <div
+        className="pointer-events-none absolute -left-32 -top-32 h-[420px] w-[420px] rounded-full bg-white/[0.05] blur-3xl"
+        aria-hidden="true"
+      />
+
+      {/* =====================================================
+          GREEN GLOW
+      ===================================================== */}
+
+      <div
+        className="pointer-events-none absolute -bottom-40 -right-32 h-[500px] w-[500px] rounded-full bg-[#22C55E]/[0.08] blur-3xl"
+        aria-hidden="true"
+      />
+
+      {/* =====================================================
+          DECORATIVE WHITE CURVED LINES
+      ===================================================== */}
+
+      <div
+        className="pointer-events-none absolute -left-48 top-16 h-[520px] w-[900px] rounded-[50%] border border-white/[0.16]"
         aria-hidden="true"
       />
 
       <div
-        className="pointer-events-none absolute -right-56 bottom-0 h-[520px] w-[950px] rounded-[50%] border border-white/20"
+        className="pointer-events-none absolute -left-40 top-28 h-[520px] w-[900px] rounded-[50%] border border-white/[0.08]"
         aria-hidden="true"
       />
 
       <div
-        className="pointer-events-none absolute left-1/2 top-1/2 h-[700px] w-[1000px] -translate-x-1/2 -translate-y-1/2 rounded-[50%] border border-white/10"
+        className="pointer-events-none absolute -right-56 bottom-0 h-[520px] w-[950px] rounded-[50%] border border-white/[0.14]"
+        aria-hidden="true"
+      />
+
+      <div
+        className="pointer-events-none absolute -right-48 bottom-12 h-[520px] w-[950px] rounded-[50%] border border-white/[0.07]"
+        aria-hidden="true"
+      />
+
+      {/* =====================================================
+          SMALL WHITE / GREEN LIGHT DOTS
+      ===================================================== */}
+
+      <div
+        className="pointer-events-none absolute left-[8%] top-[28%] h-2 w-2 rounded-full bg-white/40 shadow-[0_0_15px_rgba(255,255,255,0.5)]"
+        aria-hidden="true"
+      />
+
+      <div
+        className="pointer-events-none absolute right-[12%] top-[18%] h-1.5 w-1.5 rounded-full bg-white/30"
+        aria-hidden="true"
+      />
+
+      <div
+        className="pointer-events-none absolute right-[25%] bottom-[20%] h-2 w-2 rounded-full bg-[#4ADE80]/60 shadow-[0_0_18px_rgba(74,222,128,0.6)]"
         aria-hidden="true"
       />
 
@@ -178,19 +262,19 @@ export function ServiceProcess() {
 
         {/* Heading */}
         <div className="mx-auto max-w-3xl text-center">
-          <span className="inline-flex items-center gap-2 rounded-[8px] bg-[#B8F5C8] px-4 py-2 text-xs font-bold uppercase tracking-wide text-[#166534] shadow-sm">
-            <span className="h-2.5 w-2.5 rounded-full bg-[#22C55E]" />
+          <span className="inline-flex items-center gap-2 rounded-[8px] border border-white/10 bg-white/[0.08] px-4 py-2 text-xs font-bold uppercase tracking-wide text-[#86EFAC] shadow-[0_8px_30px_rgba(0,0,0,0.25)] backdrop-blur-sm">
+            <span className="h-2.5 w-2.5 rounded-full bg-[#22C55E] shadow-[0_0_10px_rgba(34,197,94,0.8)]" />
             Proses Mudah & Transparan
           </span>
 
-          <h2 className="mt-5 text-2xl font-bold tracking-tight text-white sm:text-3xl lg:text-4xl">
+          <h2 className="mt-5 text-2xl font-bold tracking-tight text-white drop-shadow-[0_4px_15px_rgba(0,0,0,0.5)] sm:text-3xl lg:text-4xl">
             Bagaimana Proses Service AC di{' '}
-            <span className="text-[#67E8F9]">
+            <span className="text-[#4ADE80] drop-shadow-[0_0_16px_rgba(74,222,128,0.18)]">
               Sabit Jaya Service?
             </span>
           </h2>
 
-          <p className="mt-4 text-sm leading-relaxed text-white/90 sm:text-base lg:text-lg">
+          <p className="mt-4 text-sm leading-relaxed text-white/75 sm:text-base lg:text-lg">
             Kami memberikan proses service AC yang sederhana,
             jelas, dan transparan mulai dari konsultasi,
             pengecekan, konfirmasi harga, pengerjaan hingga
@@ -241,11 +325,11 @@ export function ServiceProcess() {
                     border
                     border-white/70
                     bg-[#F8FBFF]
-                    shadow-[0_18px_45px_-18px_rgba(0,0,0,0.35)]
+                    shadow-[0_18px_45px_-18px_rgba(0,0,0,0.55)]
                     transition-all
                     duration-300
                     hover:-translate-y-1
-                    hover:shadow-[0_24px_55px_-18px_rgba(0,0,0,0.4)]
+                    hover:shadow-[0_24px_55px_-18px_rgba(0,0,0,0.7)]
 
                     sm:w-auto
                     sm:shrink
@@ -340,7 +424,7 @@ export function ServiceProcess() {
                   duration-300
                   ${
                     activeIndex === index
-                      ? 'w-7 bg-white'
+                      ? 'w-7 bg-[#22C55E]'
                       : 'w-2 bg-white/40'
                   }
 
@@ -354,4 +438,4 @@ export function ServiceProcess() {
       </div>
     </section>
   );
-        }
+}

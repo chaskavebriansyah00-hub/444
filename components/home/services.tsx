@@ -79,16 +79,35 @@ function ServiceCard({
         overflow-hidden
         rounded-[8px]
         border
-        border-slate-200
-        bg-white
-        shadow-[0_8px_24px_-12px_rgba(0,0,0,0.45)]
+        border-[#CBD5E1]
+        bg-gradient-to-br
+        from-[#F1F5F9]
+        via-[#E2E8F0]
+        to-[#CBD5E1]
+        shadow-[0_12px_30px_-12px_rgba(0,0,0,0.65)]
         transition-all
         duration-300
         hover:-translate-y-1
-        hover:border-[#22C55E]/50
-        hover:shadow-[0_16px_35px_-12px_rgba(34,197,94,0.25)]
+        hover:border-[#2563EB]/60
+        hover:shadow-[0_18px_40px_-12px_rgba(37,99,235,0.28)]
       "
     >
+      {/* Highlight glossy */}
+      <div
+        className="
+          pointer-events-none
+          absolute
+          inset-x-0
+          top-0
+          h-24
+          bg-gradient-to-b
+          from-white/70
+          via-white/20
+          to-transparent
+        "
+        aria-hidden="true"
+      />
+
       {/* Label Populer */}
       {card.popular && (
         <span
@@ -100,7 +119,9 @@ function ServiceCard({
             inline-flex
             items-center
             rounded-[6px]
-            bg-[#22C55E]
+            border
+            border-white/30
+            bg-[#2563EB]
             px-2.5
             py-1
             text-[10px]
@@ -108,7 +129,7 @@ function ServiceCard({
             uppercase
             tracking-wide
             text-white
-            shadow-sm
+            shadow-[0_5px_14px_rgba(37,99,235,0.35)]
           "
         >
           Populer
@@ -116,7 +137,8 @@ function ServiceCard({
       )}
 
       {/* Card Body */}
-      <div className="flex flex-1 flex-col p-5 sm:p-6">
+      <div className="relative z-10 flex flex-1 flex-col p-5 sm:p-6">
+
         {/* Judul */}
         <h3
           className="
@@ -126,7 +148,7 @@ function ServiceCard({
             font-bold
             leading-snug
             tracking-tight
-            text-slate-900
+            text-[#172033]
             sm:text-xl
           "
         >
@@ -139,13 +161,13 @@ function ServiceCard({
             className="
               rounded-[6px]
               border
-              border-slate-300
-              bg-slate-50
+              border-[#94A3B8]
+              bg-white/70
               px-3
               py-1.5
               text-xs
               font-semibold
-              text-slate-700
+              text-[#334155]
             "
           >
             {card.pk}
@@ -154,12 +176,15 @@ function ServiceCard({
           <span
             className="
               rounded-[6px]
-              bg-[#22C55E]
+              border
+              border-[#60A5FA]
+              bg-[#2563EB]
               px-3
               py-1.5
               text-xs
               font-bold
               text-white
+              shadow-[0_4px_12px_rgba(37,99,235,0.25)]
             "
           >
             {card.priceNote
@@ -174,7 +199,7 @@ function ServiceCard({
             mt-4
             text-sm
             leading-relaxed
-            text-slate-600
+            text-[#475569]
           "
         >
           {card.description}
@@ -191,7 +216,7 @@ function ServiceCard({
                 gap-2.5
                 text-sm
                 leading-relaxed
-                text-slate-700
+                text-[#334155]
               "
             >
               <span
@@ -204,7 +229,8 @@ function ServiceCard({
                   items-center
                   justify-center
                   rounded-full
-                  bg-[#22C55E]
+                  bg-[#2563EB]
+                  shadow-[0_3px_8px_rgba(37,99,235,0.3)]
                 "
               >
                 <Check
@@ -230,19 +256,23 @@ function ServiceCard({
             justify-center
             gap-2
             rounded-[7px]
+            border
+            border-[#60A5FA]
             bg-gradient-to-r
-            from-[#22C55E]
-            to-[#4ADE80]
+            from-[#1D4ED8]
+            via-[#2563EB]
+            to-[#3B82F6]
             py-3
             text-sm
             font-bold
             text-white
-            shadow-[0_6px_16px_-6px_rgba(34,197,94,0.65)]
+            shadow-[0_7px_18px_-5px_rgba(37,99,235,0.65)]
             transition-all
             duration-200
-            hover:from-[#16A34A]
-            hover:to-[#22C55E]
-            hover:shadow-[0_8px_20px_-6px_rgba(34,197,94,0.75)]
+            hover:from-[#1E40AF]
+            hover:via-[#2563EB]
+            hover:to-[#60A5FA]
+            hover:shadow-[0_10px_24px_-6px_rgba(37,99,235,0.8)]
             active:scale-[0.98]
           "
         >
@@ -299,4 +329,4 @@ export function Services() {
       </div>
     </section>
   );
-      }
+}

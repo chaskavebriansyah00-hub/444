@@ -7,29 +7,50 @@ import {
   useScroll,
   useMotionValueEvent,
 } from 'framer-motion';
-import { Menu, X, Phone, ChevronDown } from 'lucide-react';
+import {
+  Menu,
+  X,
+  Phone,
+  ChevronDown,
+} from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
 import Link from 'next/link';
-import { serviceAreas, siteConfig } from '@/lib/site-config';
+import {
+  serviceAreas,
+  siteConfig,
+} from '@/lib/site-config';
 import { cn } from '@/lib/utils';
 
 interface HeaderProps {
   homepage?: boolean;
 }
 
-export function Header({ homepage = false }: HeaderProps) {
-  const [scrolled, setScrolled] = React.useState(false);
-  const [open, setOpen] = React.useState(false);
-  const [servicesOpen, setServicesOpen] = React.useState(false);
+export function Header({
+  homepage = false,
+}: HeaderProps) {
+  const [scrolled, setScrolled] =
+    React.useState(false);
+
+  const [open, setOpen] =
+    React.useState(false);
+
+  const [servicesOpen, setServicesOpen] =
+    React.useState(false);
 
   const { scrollY } = useScroll();
 
-  useMotionValueEvent(scrollY, 'change', (latest) => {
-    setScrolled(latest > 24);
-  });
+  useMotionValueEvent(
+    scrollY,
+    'change',
+    (latest) => {
+      setScrolled(latest > 24);
+    }
+  );
 
   React.useEffect(() => {
-    document.body.style.overflow = open ? 'hidden' : '';
+    document.body.style.overflow = open
+      ? 'hidden'
+      : '';
 
     return () => {
       document.body.style.overflow = '';
@@ -44,36 +65,93 @@ export function Header({ homepage = false }: HeaderProps) {
   return (
     <>
       {/* =========================================================
-          HEADER
+          HEADER — FULL WIDTH
       ========================================================= */}
+
       <motion.header
-        initial={{ y: -80, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.5 }}
-        className="fixed inset-x-0 top-0 z-50"
+        initial={{
+          y: -80,
+          opacity: 0,
+        }}
+        animate={{
+          y: 0,
+          opacity: 1,
+        }}
+        transition={{
+          duration: 0.5,
+        }}
+        className="
+          fixed
+          inset-x-0
+          top-0
+          z-50
+          w-full
+        "
       >
-        <div className="w-full px-2 sm:px-4">
+        {/* FULL SCREEN WIDTH */}
+        <div className="w-full">
           <div
             className={cn(
-              'mx-auto mt-2 flex max-w-7xl items-center justify-between',
-              'gap-2 border border-gray-200 bg-white',
-              'px-3 py-2.5 sm:mt-3 sm:px-5 sm:py-3',
-              'rounded-[8px]',
-              'transition-all duration-300',
+              `
+                flex
+                w-full
+                items-center
+                justify-between
+                gap-2
+                overflow-hidden
+                border-b
+                border-white/10
+                px-3
+                py-2.5
+                sm:px-5
+                sm:py-3
+              `,
+              `
+                rounded-none
+                bg-gradient-to-r
+                from-[#030403]
+                via-[#0d120f]
+                to-[#030403]
+              `,
+              `
+                shadow-[0_8px_30px_rgba(0,0,0,0.65)]
+                backdrop-blur-xl
+              `,
               scrolled
-                ? 'shadow-lg'
-                : 'shadow-md'
+                ? `
+                  border-white/15
+                  shadow-[0_10px_35px_rgba(0,0,0,0.8)]
+                `
+                : `
+                  border-white/10
+                `
             )}
           >
             {/* =====================================================
-                LOGO + NAMA SABIT JAYA SERVICE
+                LOGO + NAMA
             ===================================================== */}
+
             <Link
               href="#beranda"
-              className="flex min-w-0 flex-1 items-center"
-              aria-label="Sabit Jaya Service — beranda"
+              className="
+                flex
+                min-w-0
+                flex-1
+                items-center
+              "
+              aria-label="
+                Sabit Jaya Service — beranda
+              "
             >
-              <div className="flex min-w-0 items-center gap-2 sm:gap-2.5">
+              <div
+                className="
+                  flex
+                  min-w-0
+                  items-center
+                  gap-2
+                  sm:gap-3
+                "
+              >
                 <img
                   src="/logo-dokter-sejuk-ac-transparent.png"
                   alt="Sabit Jaya Service"
@@ -82,23 +160,29 @@ export function Header({ homepage = false }: HeaderProps) {
                     w-auto
                     flex-shrink-0
                     object-contain
-                    sm:h-11
+                    sm:h-12
                   "
                 />
 
+                {/* NAMA DIBESARKAN */}
                 <span
                   className="
+                    min-w-0
                     whitespace-nowrap
                     font-sans
-                    text-[14px]
+                    text-[16px]
                     font-extrabold
-                    tracking-[-0.35px]
-                    text-[#1677E8]
-                    sm:text-lg
-                    md:text-xl
+                    leading-none
+                    tracking-[-0.45px]
+                    text-white
+                    sm:text-xl
+                    md:text-2xl
                   "
                 >
-                  SABIT JAYA SERVICE
+                  SABIT JAYA{' '}
+                  <span className="text-[#4ADE80]">
+                    SERVICE
+                  </span>
                 </span>
               </div>
             </Link>
@@ -106,44 +190,95 @@ export function Header({ homepage = false }: HeaderProps) {
             {/* =====================================================
                 WHATSAPP + HAMBURGER
             ===================================================== */}
-            <div className="flex flex-shrink-0 items-center gap-2">
-              {/* WhatsApp */}
-              <a
+
+            <div
+              className="
+                flex
+                flex-shrink-0
+                items-center
+                gap-1.5
+                sm:gap-2
+              "
+            >
+              {/* ===================================================
+                  WHATSAPP
+              =================================================== */}
+
+              <motion.a
                 href={siteConfig.whatsappHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Hubungi Sabit Jaya Service melalui WhatsApp"
+                aria-label="
+                  Hubungi Sabit Jaya Service
+                  melalui WhatsApp
+                "
+                whileTap={{
+                  scale: 0.95,
+                }}
+                animate={{
+                  boxShadow: [
+                    '0 4px 14px rgba(34,197,94,0.25)',
+                    '0 5px 24px rgba(74,222,128,0.48)',
+                    '0 4px 14px rgba(34,197,94,0.25)',
+                  ],
+                }}
+                transition={{
+                  duration: 2.8,
+                  repeat: Infinity,
+                  ease: 'easeInOut',
+                }}
                 className="
                   flex
                   h-10
+                  min-w-[94px]
+                  flex-shrink-0
                   items-center
                   justify-center
                   gap-1.5
                   rounded-[7px]
                   bg-gradient-to-r
-                  from-[#1677E8]
-                  via-[#079FCF]
-                  to-[#16B86A]
-                  px-3
+                  from-[#16A34A]
+                  via-[#22C55E]
+                  to-[#4ADE80]
+                  px-2.5
                   text-white
-                  shadow-md
                   transition-all
                   duration-200
                   hover:shadow-lg
                   active:scale-95
                   sm:h-11
+                  sm:min-w-[120px]
                   sm:gap-2
                   sm:px-4
                 "
               >
-                <FaWhatsapp className="h-5 w-5" />
+                <FaWhatsapp
+                  className="
+                    h-[18px]
+                    w-[18px]
+                    flex-shrink-0
+                    sm:h-5
+                    sm:w-5
+                  "
+                />
 
-                <span className="hidden text-sm font-bold sm:inline">
+                {/* SELALU TERLIHAT DI MOBILE */}
+                <span
+                  className="
+                    whitespace-nowrap
+                    text-[11px]
+                    font-bold
+                    sm:text-sm
+                  "
+                >
                   WhatsApp
                 </span>
-              </a>
+              </motion.a>
 
-              {/* Hamburger */}
+              {/* ===================================================
+                  HAMBURGER
+              =================================================== */}
+
               <button
                 type="button"
                 onClick={() => setOpen(true)}
@@ -158,20 +293,27 @@ export function Header({ homepage = false }: HeaderProps) {
                   justify-center
                   rounded-[7px]
                   border
-                  border-gray-200
-                  bg-white
-                  text-[#1677E8]
+                  border-white/15
+                  bg-white/[0.04]
+                  text-white
                   transition-all
                   duration-200
-                  hover:border-[#1677E8]/40
-                  hover:bg-[#1677E8]/5
-                  hover:text-[#1677E8]
+                  hover:border-[#22C55E]/50
+                  hover:bg-[#22C55E]/10
+                  hover:text-[#4ADE80]
                   active:scale-95
                   sm:h-11
                   sm:w-11
                 "
               >
-                <Menu className="h-5 w-5 sm:h-6 sm:w-6" />
+                <Menu
+                  className="
+                    h-5
+                    w-5
+                    sm:h-6
+                    sm:w-6
+                  "
+                />
               </button>
             </div>
           </div>
@@ -181,21 +323,31 @@ export function Header({ homepage = false }: HeaderProps) {
       {/* =========================================================
           MENU SAMPING
       ========================================================= */}
+
       <AnimatePresence>
         {open && (
           <>
-            {/* Overlay */}
+            {/* OVERLAY */}
+
             <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.25 }}
+              initial={{
+                opacity: 0,
+              }}
+              animate={{
+                opacity: 1,
+              }}
+              exit={{
+                opacity: 0,
+              }}
+              transition={{
+                duration: 0.25,
+              }}
               onClick={closeMenu}
               className="
                 fixed
                 inset-0
                 z-[60]
-                bg-black/40
+                bg-black/75
                 backdrop-blur-sm
               "
             />
@@ -203,10 +355,17 @@ export function Header({ homepage = false }: HeaderProps) {
             {/* ===================================================
                 DRAWER
             =================================================== */}
+
             <motion.aside
-              initial={{ x: '100%' }}
-              animate={{ x: 0 }}
-              exit={{ x: '100%' }}
+              initial={{
+                x: '100%',
+              }}
+              animate={{
+                x: 0,
+              }}
+              exit={{
+                x: '100%',
+              }}
               transition={{
                 type: 'spring',
                 stiffness: 320,
@@ -221,7 +380,12 @@ export function Header({ homepage = false }: HeaderProps) {
                 h-full
                 w-[300px]
                 flex-col
-                bg-white
+                border-l
+                border-white/10
+                bg-gradient-to-b
+                from-[#0b0d0c]
+                via-[#050505]
+                to-[#000000]
                 shadow-2xl
                 sm:w-[360px]
               "
@@ -232,13 +396,14 @@ export function Header({ homepage = false }: HeaderProps) {
               {/* =================================================
                   DRAWER HEADER
               ================================================= */}
+
               <div
                 className="
                   flex
                   items-center
                   justify-between
                   border-b
-                  border-gray-200
+                  border-white/10
                   px-6
                   py-5
                 "
@@ -249,10 +414,13 @@ export function Header({ homepage = false }: HeaderProps) {
                     text-lg
                     font-extrabold
                     tracking-tight
-                    text-[#1677E8]
+                    text-white
                   "
                 >
-                  SABIT JAYA SERVICE
+                  SABIT JAYA{' '}
+                  <span className="text-[#4ADE80]">
+                    SERVICE
+                  </span>
                 </span>
 
                 <button
@@ -267,12 +435,12 @@ export function Header({ homepage = false }: HeaderProps) {
                     justify-center
                     rounded-[7px]
                     border
-                    border-gray-200
-                    text-gray-600
+                    border-white/15
+                    text-white/70
                     transition-colors
-                    hover:border-[#1677E8]/30
-                    hover:bg-[#1677E8]/5
-                    hover:text-[#1677E8]
+                    hover:border-[#22C55E]/40
+                    hover:bg-[#22C55E]/10
+                    hover:text-[#4ADE80]
                   "
                 >
                   <X className="h-4 w-4" />
@@ -282,6 +450,7 @@ export function Header({ homepage = false }: HeaderProps) {
               {/* =================================================
                   NAVIGASI
               ================================================= */}
+
               <nav
                 className="
                   flex
@@ -294,7 +463,8 @@ export function Header({ homepage = false }: HeaderProps) {
                 "
                 aria-label="Navigasi utama"
               >
-                {/* Beranda */}
+                {/* BERANDA */}
+
                 <Link
                   href="/"
                   onClick={closeMenu}
@@ -307,10 +477,10 @@ export function Header({ homepage = false }: HeaderProps) {
                     py-3.5
                     text-base
                     font-medium
-                    text-gray-800
+                    text-white
                     transition-colors
-                    hover:bg-[#1677E8]/5
-                    hover:text-[#1677E8]
+                    hover:bg-[#22C55E]/10
+                    hover:text-[#4ADE80]
                   "
                 >
                   <span>Beranda</span>
@@ -320,7 +490,7 @@ export function Header({ homepage = false }: HeaderProps) {
                       h-1.5
                       w-1.5
                       rounded-[2px]
-                      bg-gray-300
+                      bg-white/25
                     "
                   />
                 </Link>
@@ -328,11 +498,18 @@ export function Header({ homepage = false }: HeaderProps) {
                 {/* =================================================
                     LAYANAN
                 ================================================= */}
+
                 <div>
                   <button
                     type="button"
-                    onClick={() => setServicesOpen(!servicesOpen)}
-                    aria-expanded={servicesOpen}
+                    onClick={() =>
+                      setServicesOpen(
+                        !servicesOpen
+                      )
+                    }
+                    aria-expanded={
+                      servicesOpen
+                    }
                     className="
                       flex
                       w-full
@@ -344,25 +521,37 @@ export function Header({ homepage = false }: HeaderProps) {
                       text-left
                       text-base
                       font-medium
-                      text-gray-800
+                      text-white
                       transition-colors
-                      hover:bg-[#1677E8]/5
-                      hover:text-[#1677E8]
+                      hover:bg-[#22C55E]/10
+                      hover:text-[#4ADE80]
                     "
                   >
                     <span>Layanan</span>
 
                     <ChevronDown
                       className={cn(
-                        'h-5 w-5 transition-transform duration-200',
+                        `
+                          h-5
+                          w-5
+                          transition-transform
+                          duration-200
+                        `,
                         servicesOpen
-                          ? 'rotate-180 text-[#1677E8]'
-                          : 'text-gray-500'
+                          ? `
+                            rotate-180
+                            text-[#4ADE80]
+                          `
+                          : `
+                            text-white/50
+                          `
                       )}
                     />
                   </button>
 
-                  <AnimatePresence initial={false}>
+                  <AnimatePresence
+                    initial={false}
+                  >
                     {servicesOpen && (
                       <motion.div
                         initial={{
@@ -380,64 +569,83 @@ export function Header({ homepage = false }: HeaderProps) {
                         transition={{
                           duration: 0.25,
                         }}
-                        className="overflow-hidden"
+                        className="
+                          overflow-hidden
+                        "
                       >
                         <div
                           className="
                             ml-3
                             border-l-2
-                            border-[#1677E8]/15
+                            border-[#22C55E]/20
                             pl-3
                           "
                         >
-                          {serviceAreas.map((region) => (
-                            <div
-                              key={region.region}
-                              className="py-2"
-                            >
+                          {serviceAreas.map(
+                            (region) => (
                               <div
-                                className="
-                                  px-3
-                                  pb-1
-                                  pt-1
-                                  text-sm
-                                  font-bold
-                                  text-[#1677E8]
-                                "
+                                key={
+                                  region.region
+                                }
+                                className="py-2"
                               >
-                                {region.region}
-                              </div>
-
-                              {region.areas.map((area) => (
-                                <Link
-                                  key={area.href}
-                                  href={area.href}
-                                  onClick={closeMenu}
+                                <div
                                   className="
-                                    block
-                                    rounded-[7px]
                                     px-3
-                                    py-2.5
+                                    pb-1
+                                    pt-1
                                     text-sm
-                                    leading-snug
-                                    text-gray-700
-                                    transition-colors
-                                    hover:bg-[#1677E8]/5
-                                    hover:text-[#1677E8]
+                                    font-bold
+                                    text-[#4ADE80]
                                   "
                                 >
-                                  {area.label}
-                                </Link>
-                              ))}
-                            </div>
-                          ))}
+                                  {
+                                    region.region
+                                  }
+                                </div>
+
+                                {region.areas.map(
+                                  (area) => (
+                                    <Link
+                                      key={
+                                        area.href
+                                      }
+                                      href={
+                                        area.href
+                                      }
+                                      onClick={
+                                        closeMenu
+                                      }
+                                      className="
+                                        block
+                                        rounded-[7px]
+                                        px-3
+                                        py-2.5
+                                        text-sm
+                                        leading-snug
+                                        text-white/75
+                                        transition-colors
+                                        hover:bg-[#22C55E]/10
+                                        hover:text-white
+                                      "
+                                    >
+                                      {
+                                        area.label
+                                      }
+                                    </Link>
+                                  )
+                                )}
+                              </div>
+                            )
+                          )}
                         </div>
                       </motion.div>
                     )}
                   </AnimatePresence>
                 </div>
 
-                {/* Daftar Harga */}
+                {/* DAFTAR HARGA */}
+
                 <Link
                   href="#harga"
                   onClick={closeMenu}
@@ -450,10 +658,10 @@ export function Header({ homepage = false }: HeaderProps) {
                     py-3.5
                     text-base
                     font-medium
-                    text-gray-800
+                    text-white
                     transition-colors
-                    hover:bg-[#1677E8]/5
-                    hover:text-[#1677E8]
+                    hover:bg-[#22C55E]/10
+                    hover:text-[#4ADE80]
                   "
                 >
                   <span>Daftar Harga</span>
@@ -463,12 +671,13 @@ export function Header({ homepage = false }: HeaderProps) {
                       h-1.5
                       w-1.5
                       rounded-[2px]
-                      bg-gray-300
+                      bg-white/25
                     "
                   />
                 </Link>
 
-                {/* Galeri Pengerjaan */}
+                {/* GALERI */}
+
                 <Link
                   href="#galeri"
                   onClick={closeMenu}
@@ -481,20 +690,22 @@ export function Header({ homepage = false }: HeaderProps) {
                     py-3.5
                     text-base
                     font-medium
-                    text-gray-800
+                    text-white
                     transition-colors
-                    hover:bg-[#1677E8]/5
-                    hover:text-[#1677E8]
+                    hover:bg-[#22C55E]/10
+                    hover:text-[#4ADE80]
                   "
                 >
-                  <span>Galeri Pengerjaan</span>
+                  <span>
+                    Galeri Pengerjaan
+                  </span>
 
                   <span
                     className="
                       h-1.5
                       w-1.5
                       rounded-[2px]
-                      bg-gray-300
+                      bg-white/25
                     "
                   />
                 </Link>
@@ -503,10 +714,11 @@ export function Header({ homepage = false }: HeaderProps) {
               {/* =================================================
                   HUBUNGI CEPAT
               ================================================= */}
+
               <div
                 className="
                   border-t
-                  border-gray-200
+                  border-white/10
                   px-4
                   py-5
                 "
@@ -518,16 +730,26 @@ export function Header({ homepage = false }: HeaderProps) {
                     font-medium
                     uppercase
                     tracking-wide
-                    text-gray-500
+                    text-white/50
                   "
                 >
                   Hubungi cepat
                 </p>
 
-                <div className="mt-3 grid grid-cols-2 gap-2">
-                  {/* Telepon */}
+                <div
+                  className="
+                    mt-3
+                    grid
+                    grid-cols-2
+                    gap-2
+                  "
+                >
+                  {/* TELEPON */}
+
                   <a
-                    href={siteConfig.phoneHref}
+                    href={
+                      siteConfig.phoneHref
+                    }
                     onClick={closeMenu}
                     className="
                       flex
@@ -536,8 +758,8 @@ export function Header({ homepage = false }: HeaderProps) {
                       gap-1.5
                       rounded-[7px]
                       bg-gradient-to-r
-                      from-[#1677E8]
-                      to-[#079FCF]
+                      from-[#16A34A]
+                      to-[#22C55E]
                       py-3
                       text-sm
                       font-semibold
@@ -551,9 +773,12 @@ export function Header({ homepage = false }: HeaderProps) {
                     Telepon
                   </a>
 
-                  {/* WhatsApp */}
+                  {/* WHATSAPP */}
+
                   <a
-                    href={siteConfig.whatsappHref}
+                    href={
+                      siteConfig.whatsappHref
+                    }
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={closeMenu}
@@ -564,8 +789,8 @@ export function Header({ homepage = false }: HeaderProps) {
                       gap-1.5
                       rounded-[7px]
                       bg-gradient-to-r
-                      from-[#079FCF]
-                      to-[#16B86A]
+                      from-[#22C55E]
+                      to-[#4ADE80]
                       py-3
                       text-sm
                       font-semibold

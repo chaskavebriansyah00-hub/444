@@ -54,7 +54,6 @@ export function WhyChooseUs() {
 
   const onSelect = useCallback(() => {
     if (!emblaApi) return;
-
     setSelectedIndex(emblaApi.selectedScrollSnap());
   }, [emblaApi]);
 
@@ -66,9 +65,7 @@ export function WhyChooseUs() {
 
     emblaApi.on('select', onSelect);
 
-    return () => {
-      emblaApi.off('select', onSelect);
-    };
+    return () => emblaApi.off('select', onSelect);
   }, [emblaApi, onSelect]);
 
   useEffect(() => {
@@ -78,40 +75,22 @@ export function WhyChooseUs() {
     let autoplayTimer: ReturnType<typeof setInterval> | undefined;
 
     const startAutoplay = () => {
-      if (autoplayTimer) {
-        clearInterval(autoplayTimer);
-      }
-
-      autoplayTimer = setInterval(() => {
-        emblaApi.scrollNext();
-      }, 5000);
+      clearInterval(autoplayTimer);
+      autoplayTimer = setInterval(() => emblaApi.scrollNext(), 5000);
     };
 
     const pauseAutoplay = () => {
-      if (autoplayTimer) {
-        clearInterval(autoplayTimer);
-      }
-
-      if (resumeTimer) {
-        clearTimeout(resumeTimer);
-      }
-
+      clearInterval(autoplayTimer);
+      clearTimeout(resumeTimer);
       resumeTimer = setTimeout(startAutoplay, 1800);
     };
 
     startAutoplay();
-
     emblaApi.on('pointerDown', pauseAutoplay);
 
     return () => {
-      if (autoplayTimer) {
-        clearInterval(autoplayTimer);
-      }
-
-      if (resumeTimer) {
-        clearTimeout(resumeTimer);
-      }
-
+      clearInterval(autoplayTimer);
+      clearTimeout(resumeTimer);
       emblaApi.off('pointerDown', pauseAutoplay);
     };
   }, [emblaApi]);
@@ -119,71 +98,95 @@ export function WhyChooseUs() {
   return (
     <section
       id="tentang"
-      className="
-        relative overflow-hidden
-        bg-gradient-to-br
-        from-[#0756D9]
-        via-[#0878F5]
-        to-[#1598FF]
-        py-12
-        sm:py-20
-        lg:py-24
-      "
+      className="relative overflow-hidden bg-[#030504] py-12 sm:py-20 lg:py-24"
     >
-      {/* =====================================================
-          GARIS SPIRAL / LENGKUNG
-          ===================================================== */}
+      {/* ===== Premium Glossy Background ===== */}
       <div
-        className="pointer-events-none absolute inset-0 overflow-hidden"
+        className="pointer-events-none absolute inset-0"
         aria-hidden="true"
-      >
-        {/* Spiral kiri atas */}
-        <div className="absolute -left-[520px] -top-[420px] h-[1050px] w-[1050px] rounded-full border-2 border-white/20" />
+        style={{
+          background:
+            'radial-gradient(circle at 15% 18%, rgba(255,255,255,0.08), transparent 28%), radial-gradient(circle at 85% 75%, rgba(34,197,94,0.10), transparent 30%), linear-gradient(135deg,#020303 0%,#090d0b 45%,#020303 100%)',
+        }}
+      />
 
-        <div className="absolute -left-[440px] -top-[340px] h-[1050px] w-[1050px] rounded-full border-2 border-white/14" />
+      {/* Corak putih */}
+      <div
+        className="pointer-events-none absolute inset-0 opacity-[0.10]"
+        aria-hidden="true"
+        style={{
+          backgroundImage:
+            'repeating-linear-gradient(135deg, transparent 0px, transparent 34px, rgba(255,255,255,0.22) 35px, transparent 36px, transparent 72px)',
+        }}
+      />
 
-        <div className="absolute -left-[360px] -top-[260px] h-[1050px] w-[1050px] rounded-full border-2 border-white/9" />
+      {/* Grid putih tipis */}
+      <div
+        className="pointer-events-none absolute inset-0 opacity-[0.05]"
+        aria-hidden="true"
+        style={{
+          backgroundImage:
+            'linear-gradient(rgba(255,255,255,.25) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.25) 1px, transparent 1px)',
+          backgroundSize: '70px 70px',
+        }}
+      />
 
-        {/* Spiral kanan bawah */}
-        <div className="absolute -bottom-[620px] -right-[500px] h-[1050px] w-[1050px] rounded-full border-2 border-white/18" />
+      {/* Glow putih */}
+      <motion.div
+        className="pointer-events-none absolute -left-32 -top-32 h-[420px] w-[420px] rounded-full bg-white/[0.05] blur-3xl"
+        animate={{
+          scale: [1, 1.12, 1],
+          opacity: [0.4, 0.7, 0.4],
+        }}
+        transition={{
+          duration: 7,
+          repeat: Infinity,
+          ease: 'easeInOut',
+        }}
+      />
 
-        <div className="absolute -bottom-[540px] -right-[420px] h-[1050px] w-[1050px] rounded-full border-2 border-white/12" />
+      {/* Glow hijau */}
+      <motion.div
+        className="pointer-events-none absolute -bottom-40 -right-32 h-[500px] w-[500px] rounded-full bg-[#22C55E]/[0.08] blur-3xl"
+        animate={{
+          scale: [1, 1.18, 1],
+          x: [0, -25, 0],
+          y: [0, -20, 0],
+        }}
+        transition={{
+          duration: 9,
+          repeat: Infinity,
+          ease: 'easeInOut',
+        }}
+      />
 
-        <div className="absolute -bottom-[460px] -right-[340px] h-[1050px] w-[1050px] rounded-full border-2 border-white/7" />
-
-        {/* Cahaya lembut */}
-        <div className="absolute left-1/2 top-0 h-80 w-80 -translate-x-1/2 rounded-full bg-white/10 blur-3xl" />
-      </div>
+      {/* Garis lengkung putih */}
+      <div className="pointer-events-none absolute -left-52 top-12 h-[1100px] w-[1100px] rounded-full border border-white/15" />
+      <div className="pointer-events-none absolute -left-36 top-28 h-[1100px] w-[1100px] rounded-full border border-white/8" />
+      <div className="pointer-events-none absolute -right-60 bottom-[-450px] h-[1100px] w-[1100px] rounded-full border border-white/15" />
+      <div className="pointer-events-none absolute -right-44 bottom-[-340px] h-[1100px] w-[1100px] rounded-full border border-white/8" />
 
       <div className="container-page relative z-10">
-        {/* ===================================================
-            HEADING
-            =================================================== */}
+        {/* Heading */}
         <div className="mx-auto max-w-4xl text-center">
-          {/* Badge hijau muda */}
-          <div className="inline-flex items-center gap-2 rounded-full bg-[#B8F5D0] px-4 py-2 text-sm font-semibold text-[#075B2A] shadow-sm">
-            <span className="h-2 w-2 rounded-full bg-[#20C76A]" />
-            <span>Kenapa Harus Sabit Jaya Service</span>
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/10 px-4 py-2 text-sm font-semibold text-[#86EFAC] backdrop-blur-sm shadow-lg">
+            <span className="h-2 w-2 rounded-full bg-[#22C55E]" />
+            Kenapa Harus Sabit Jaya Service
           </div>
 
           <h2 className="mt-5 font-display text-[2rem] font-bold leading-tight tracking-tight text-white sm:text-[2.35rem] lg:text-[2.75rem]">
             Lebih dari Sekadar Service AC
           </h2>
 
-          <p className="mx-auto mt-4 max-w-3xl text-[0.98rem] leading-7 text-white sm:text-base sm:leading-8">
+          <p className="mx-auto mt-4 max-w-3xl text-[0.98rem] leading-7 text-white/80 sm:text-base sm:leading-8">
             Kami membangun kepercayaan pelanggan melalui transparansi,
             keahlian, dan tanggung jawab penuh dalam setiap layanan yang kami
             berikan.
           </p>
         </div>
 
-        {/* ===================================================
-            CAROUSEL
-            =================================================== */}
-        <div
-          ref={emblaRef}
-          className="mt-9 overflow-hidden sm:mt-12"
-        >
+        {/* Carousel */}
+        <div ref={emblaRef} className="mt-9 overflow-hidden sm:mt-12">
           <div className="-ml-5 flex touch-pan-y">
             {reasons.map((reason, index) => {
               const Icon = reason.icon;
@@ -191,109 +194,36 @@ export function WhyChooseUs() {
               return (
                 <div
                   key={reason.title}
-                  className="
-                    min-w-0 flex-[0_0_100%] pl-5
-                    sm:flex-[0_0_50%]
-                    lg:flex-[0_0_33.333333%]
-                  "
+                  className="min-w-0 flex-[0_0_100%] pl-5 sm:flex-[0_0_50%] lg:flex-[0_0_33.333333%]"
                 >
                   <motion.article
-                    initial={{
-                      opacity: 0,
-                      y: 20,
-                    }}
-                    whileInView={{
-                      opacity: 1,
-                      y: 0,
-                    }}
-                    viewport={{
-                      once: true,
-                      margin: '-60px',
-                    }}
-                    transition={{
-                      duration: 0.5,
-                      delay: index * 0.08,
-                    }}
-                    className="
-                      group flex h-full min-h-[490px]
-                      flex-col overflow-hidden
-                      rounded-[8px]
-                      border border-white/80
-                      bg-[#F7FAFF]
-                      shadow-card
-                      transition-all duration-300
-                      ease-in-out
-                      hover:-translate-y-1.5
-                      hover:shadow-elevated
-                    "
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: '-60px' }}
+                    transition={{ duration: 0.5, delay: index * 0.08 }}
+                    className="group flex h-full min-h-[490px] flex-col overflow-hidden rounded-[8px] border border-slate-200 bg-[#F7FAFF] shadow-[0_18px_45px_-20px_rgba(0,0,0,.75)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_55px_-20px_rgba(0,0,0,.85)]"
                   >
-                    {/* FOTO */}
-                    <div className="relative aspect-video shrink-0 overflow-visible">
+                    {/* Foto */}
+                    <div className="relative aspect-video overflow-visible">
                       <img
                         src={reason.image}
                         alt={reason.title}
-                        className="
-                          h-full w-full
-                          rounded-t-[8px]
-                          object-cover
-                        "
+                        className="h-full w-full rounded-t-[8px] object-cover"
                       />
 
-                      {/* ICON */}
-                      <span
-                        className="
-                          absolute bottom-0 left-1/2
-                          flex h-12 w-12
-                          -translate-x-1/2
-                          translate-y-1/2
-                          items-center justify-center
-                          rounded-[8px]
-                          border-4 border-[#F7FAFF]
-                          bg-[#1677E8]
-                          text-white
-                          shadow-card
-                        "
-                      >
-                        <Icon
-                          className="h-5 w-5"
-                          strokeWidth={2}
-                        />
+                      {/* Icon */}
+                      <span className="absolute bottom-0 left-1/2 flex h-12 w-12 -translate-x-1/2 translate-y-1/2 items-center justify-center rounded-[8px] border-4 border-[#F7FAFF] bg-[#1677E8] text-white shadow-lg">
+                        <Icon className="h-5 w-5" />
                       </span>
                     </div>
 
-                    {/* ISI CARD */}
-                    <div
-                      className="
-                        flex flex-1
-                        flex-col
-                        items-center
-                        px-6
-                        pb-7
-                        pt-10
-                        text-center
-                      "
-                    >
-                      <h3
-                        className="
-                          font-display
-                          text-[1.12rem]
-                          font-bold
-                          tracking-tight
-                          text-[#0F2342]
-                        "
-                      >
+                    {/* Isi */}
+                    <div className="flex flex-1 flex-col items-center px-6 pb-7 pt-10 text-center">
+                      <h3 className="font-display text-[1.12rem] font-bold text-[#0F2342]">
                         {reason.title}
                       </h3>
 
-                      <p
-                        className="
-                          mt-3
-                          min-h-[120px]
-                          text-[0.94rem]
-                          leading-relaxed
-                          text-[#64748B]
-                        "
-                      >
+                      <p className="mt-3 min-h-[120px] text-[0.94rem] leading-relaxed text-[#64748B]">
                         {reason.description}
                       </p>
                     </div>
@@ -304,34 +234,22 @@ export function WhyChooseUs() {
           </div>
         </div>
 
-        {/* ===================================================
-            PAGINATION
-            =================================================== */}
-        <div
-          className="mt-6 flex items-center justify-center gap-2 sm:mt-7"
-          aria-label="Carousel pagination"
-        >
+        {/* Pagination */}
+        <div className="mt-6 flex items-center justify-center gap-2 sm:mt-7">
           {scrollSnaps.map((_, index) => (
             <button
               key={index}
               type="button"
-              aria-label={`Go to slide ${index + 1}`}
-              aria-current={selectedIndex === index}
               onClick={() => emblaApi?.scrollTo(index)}
-              className={`
-                h-2
-                rounded-[2px]
-                transition-all duration-300
-                ${
-                  selectedIndex === index
-                    ? 'w-7 bg-white'
-                    : 'w-2 bg-white/40 hover:bg-white/70'
-                }
-              `}
+              className={
+                selectedIndex === index
+                  ? 'h-2 w-7 rounded-full bg-[#22C55E]'
+                  : 'h-2 w-2 rounded-full bg-white/35'
+              }
             />
           ))}
         </div>
       </div>
     </section>
   );
-}
+    }

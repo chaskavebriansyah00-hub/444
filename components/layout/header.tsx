@@ -88,7 +88,6 @@ export function Header({
           w-full
         "
       >
-        {/* FULL SCREEN WIDTH */}
         <div className="w-full">
           <div
             className={cn(
@@ -164,23 +163,24 @@ export function Header({
                   "
                 />
 
-                {/* NAMA DIBESARKAN */}
+                {/* NAMA — BIRU & LEBIH BESAR */}
                 <span
                   className="
                     min-w-0
                     whitespace-nowrap
                     font-sans
-                    text-[16px]
+                    text-[18px]
                     font-extrabold
                     leading-none
-                    tracking-[-0.45px]
-                    text-white
-                    sm:text-xl
-                    md:text-2xl
+                    tracking-[-0.5px]
+                    text-[#2563EB]
+                    drop-shadow-[0_0_10px_rgba(37,99,235,0.25)]
+                    sm:text-2xl
+                    md:text-3xl
                   "
                 >
                   SABIT JAYA{' '}
-                  <span className="text-[#4ADE80]">
+                  <span className="text-[#60A5FA]">
                     SERVICE
                   </span>
                 </span>
@@ -201,7 +201,7 @@ export function Header({
               "
             >
               {/* ===================================================
-                  WHATSAPP
+                  WHATSAPP HEADER — BIRU
               =================================================== */}
 
               <motion.a
@@ -217,9 +217,9 @@ export function Header({
                 }}
                 animate={{
                   boxShadow: [
-                    '0 4px 14px rgba(34,197,94,0.25)',
-                    '0 5px 24px rgba(74,222,128,0.48)',
-                    '0 4px 14px rgba(34,197,94,0.25)',
+                    '0 4px 14px rgba(37,99,235,0.25)',
+                    '0 5px 24px rgba(59,130,246,0.55)',
+                    '0 4px 14px rgba(37,99,235,0.25)',
                   ],
                 }}
                 transition={{
@@ -237,13 +237,16 @@ export function Header({
                   gap-1.5
                   rounded-[7px]
                   bg-gradient-to-r
-                  from-[#16A34A]
-                  via-[#22C55E]
-                  to-[#4ADE80]
+                  from-[#1D4ED8]
+                  via-[#2563EB]
+                  to-[#3B82F6]
                   px-2.5
                   text-white
                   transition-all
                   duration-200
+                  hover:from-[#1E40AF]
+                  hover:via-[#2563EB]
+                  hover:to-[#60A5FA]
                   hover:shadow-lg
                   active:scale-95
                   sm:h-11
@@ -262,7 +265,6 @@ export function Header({
                   "
                 />
 
-                {/* SELALU TERLIHAT DI MOBILE */}
                 <span
                   className="
                     whitespace-nowrap
@@ -298,9 +300,9 @@ export function Header({
                   text-white
                   transition-all
                   duration-200
-                  hover:border-[#22C55E]/50
-                  hover:bg-[#22C55E]/10
-                  hover:text-[#4ADE80]
+                  hover:border-[#2563EB]/50
+                  hover:bg-[#2563EB]/10
+                  hover:text-[#60A5FA]
                   active:scale-95
                   sm:h-11
                   sm:w-11
@@ -352,9 +354,7 @@ export function Header({
               "
             />
 
-            {/* ===================================================
-                DRAWER
-            =================================================== */}
+            {/* DRAWER */}
 
             <motion.aside
               initial={{
@@ -393,9 +393,7 @@ export function Header({
               aria-modal="true"
               aria-label="Menu navigasi"
             >
-              {/* =================================================
-                  DRAWER HEADER
-              ================================================= */}
+              {/* DRAWER HEADER */}
 
               <div
                 className="
@@ -411,14 +409,14 @@ export function Header({
                 <span
                   className="
                     font-sans
-                    text-lg
+                    text-xl
                     font-extrabold
                     tracking-tight
-                    text-white
+                    text-[#2563EB]
                   "
                 >
                   SABIT JAYA{' '}
-                  <span className="text-[#4ADE80]">
+                  <span className="text-[#60A5FA]">
                     SERVICE
                   </span>
                 </span>
@@ -438,18 +436,16 @@ export function Header({
                     border-white/15
                     text-white/70
                     transition-colors
-                    hover:border-[#22C55E]/40
-                    hover:bg-[#22C55E]/10
-                    hover:text-[#4ADE80]
+                    hover:border-[#2563EB]/40
+                    hover:bg-[#2563EB]/10
+                    hover:text-[#60A5FA]
                   "
                 >
                   <X className="h-4 w-4" />
                 </button>
               </div>
 
-              {/* =================================================
-                  NAVIGASI
-              ================================================= */}
+              {/* NAVIGASI */}
 
               <nav
                 className="
@@ -463,8 +459,6 @@ export function Header({
                 "
                 aria-label="Navigasi utama"
               >
-                {/* BERANDA */}
-
                 <Link
                   href="/"
                   onClick={closeMenu}
@@ -479,8 +473,8 @@ export function Header({
                     font-medium
                     text-white
                     transition-colors
-                    hover:bg-[#22C55E]/10
-                    hover:text-[#4ADE80]
+                    hover:bg-[#2563EB]/10
+                    hover:text-[#60A5FA]
                   "
                 >
                   <span>Beranda</span>
@@ -495,9 +489,7 @@ export function Header({
                   />
                 </Link>
 
-                {/* =================================================
-                    LAYANAN
-                ================================================= */}
+                {/* LAYANAN */}
 
                 <div>
                   <button
@@ -523,8 +515,8 @@ export function Header({
                       font-medium
                       text-white
                       transition-colors
-                      hover:bg-[#22C55E]/10
-                      hover:text-[#4ADE80]
+                      hover:bg-[#2563EB]/10
+                      hover:text-[#60A5FA]
                     "
                   >
                     <span>Layanan</span>
@@ -540,7 +532,7 @@ export function Header({
                         servicesOpen
                           ? `
                             rotate-180
-                            text-[#4ADE80]
+                            text-[#60A5FA]
                           `
                           : `
                             text-white/50
@@ -569,15 +561,13 @@ export function Header({
                         transition={{
                           duration: 0.25,
                         }}
-                        className="
-                          overflow-hidden
-                        "
+                        className="overflow-hidden"
                       >
                         <div
                           className="
                             ml-3
                             border-l-2
-                            border-[#22C55E]/20
+                            border-[#2563EB]/30
                             pl-3
                           "
                         >
@@ -596,7 +586,7 @@ export function Header({
                                     pt-1
                                     text-sm
                                     font-bold
-                                    text-[#4ADE80]
+                                    text-[#60A5FA]
                                   "
                                 >
                                   {
@@ -625,7 +615,7 @@ export function Header({
                                         leading-snug
                                         text-white/75
                                         transition-colors
-                                        hover:bg-[#22C55E]/10
+                                        hover:bg-[#2563EB]/10
                                         hover:text-white
                                       "
                                     >
@@ -660,8 +650,8 @@ export function Header({
                     font-medium
                     text-white
                     transition-colors
-                    hover:bg-[#22C55E]/10
-                    hover:text-[#4ADE80]
+                    hover:bg-[#2563EB]/10
+                    hover:text-[#60A5FA]
                   "
                 >
                   <span>Daftar Harga</span>
@@ -692,8 +682,8 @@ export function Header({
                     font-medium
                     text-white
                     transition-colors
-                    hover:bg-[#22C55E]/10
-                    hover:text-[#4ADE80]
+                    hover:bg-[#2563EB]/10
+                    hover:text-[#60A5FA]
                   "
                 >
                   <span>
@@ -711,9 +701,7 @@ export function Header({
                 </Link>
               </nav>
 
-              {/* =================================================
-                  HUBUNGI CEPAT
-              ================================================= */}
+              {/* HUBUNGI CEPAT */}
 
               <div
                 className="
@@ -747,9 +735,7 @@ export function Header({
                   {/* TELEPON */}
 
                   <a
-                    href={
-                      siteConfig.phoneHref
-                    }
+                    href={siteConfig.phoneHref}
                     onClick={closeMenu}
                     className="
                       flex
@@ -758,13 +744,14 @@ export function Header({
                       gap-1.5
                       rounded-[7px]
                       bg-gradient-to-r
-                      from-[#16A34A]
-                      to-[#22C55E]
+                      from-[#1D4ED8]
+                      via-[#2563EB]
+                      to-[#3B82F6]
                       py-3
                       text-sm
                       font-semibold
                       text-white
-                      shadow-sm
+                      shadow-[0_5px_15px_rgba(37,99,235,0.3)]
                       transition-transform
                       active:scale-95
                     "
@@ -789,13 +776,14 @@ export function Header({
                       gap-1.5
                       rounded-[7px]
                       bg-gradient-to-r
-                      from-[#22C55E]
-                      to-[#4ADE80]
+                      from-[#1D4ED8]
+                      via-[#2563EB]
+                      to-[#3B82F6]
                       py-3
                       text-sm
                       font-semibold
                       text-white
-                      shadow-sm
+                      shadow-[0_5px_15px_rgba(37,99,235,0.3)]
                       transition-transform
                       active:scale-95
                     "
@@ -811,4 +799,4 @@ export function Header({
       </AnimatePresence>
     </>
   );
-              }
+                }
